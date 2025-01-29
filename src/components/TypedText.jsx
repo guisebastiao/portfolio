@@ -1,5 +1,5 @@
 import { ReactTyped } from "react-typed";
-import { skills } from "../data/skills";
+import { skills } from "../utils/skills";
 
 export const TypedText = () => {
   return (

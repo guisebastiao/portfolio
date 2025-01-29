@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ProjectContent } from "./ProjectContent";
-import { projects } from "../data/projects";
+import { projects } from "../utils/projects";
 
 export const Projects = () => {
   const [current, setCurrent] = useState(1);
@@ -23,13 +23,14 @@ export const Projects = () => {
         </p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-5">
-        {currentProjects.map(({ name, cover, link, tecs }) => (
+        {currentProjects.map(({ name, cover, link, tecs, star }) => (
           <ProjectContent
             key={name}
             name={name}
             cover={cover}
             link={link}
             tecs={tecs}
+            star={star}
           />
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { Plus } from "lucide-react";
-import { technologies } from "../data/technologies";
+import { technologies } from "../utils/technologies";
 import { SkillContent } from "./SkillContent";
 
 export const About = () => {

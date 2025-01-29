@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 
-import { SERVICE_KEY, TEMPLATE_KEY, PUBLIC_KEY } from "../data/config";
+import { SERVICE_KEY, TEMPLATE_KEY, PUBLIC_KEY } from "../utils/config";
 
 const useSendEmail = () => {
   const [loading, setLoading] = useState(false);
@@ -15,13 +15,13 @@ const useSendEmail = () => {
     setSuccess(false);
 
     try {
-      const templateParams = { name, email, subject }
+      const templateParams = { name, email, subject };
       await emailjs.send(SERVICE_KEY, TEMPLATE_KEY, templateParams, PUBLIC_KEY);
 
       toast.success("Seu e-mail foi enviado com sucesso.");
       setSuccess(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError(true);
       setLoading(false);
 
@@ -30,9 +30,9 @@ const useSendEmail = () => {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
-  return { sendEmail, success, error, loading }
-}
+  return { sendEmail, success, error, loading };
+};
 
 export default useSendEmail;

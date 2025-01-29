@@ -1,8 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
+import { Star } from "lucide-react";
 
-export const ProjectContent = ({ name, cover, link, tecs }) => {
+export const ProjectContent = ({ name, cover, link, tecs, star }) => {
   return (
-    <div className="max-w-[320px] flex items-center justify-center flex-col border border-zinc-700 bg-zinc-800 rounded-2xl px-5 py-5 gap-5">
+    <div className="relative max-w-[320px] flex items-center justify-center flex-col border border-zinc-700 bg-zinc-800 rounded-2xl px-5 py-5 gap-5">
+      {star && (
+        <div className="absolute z-50 left-3 top-2">
+          <Star className="fill-yellow-500 stroke-yellow-500 scale-125" />
+        </div>
+      )}
       <figure>
         <img
           src={cover}
