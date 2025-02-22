@@ -10,7 +10,7 @@ export const projects = [
     name: "ToDoList",
     cover: "/projectsBackgrounds/todo.png",
     link: "https://github.com/guisebastiao/To-Do",
-    tecs: ["React", "SQL"],
+    tecs: ["React", "ChadCN", "Tailwind", "Fastify", "Prisma", "SQL"],
     star: false,
   },
   {
