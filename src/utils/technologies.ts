@@ -16,7 +16,7 @@ import gitIcon from "@/assets/icons/git.svg";
 export const technologies = [
   {
     name: "React",
-    type: "Framework",
+    type: "Lib",
     src: reactIcon,
   },
   {
@@ -36,12 +36,12 @@ export const technologies = [
   },
   {
     name: "JavaScript",
-    type: "Linguagem",
+    type: "Linguage",
     src: javascriptIcon,
   },
   {
     name: "TypeScript",
-    type: "Linguagem",
+    type: "Linguage",
     src: typescriptIcon,
   },
   {
@@ -51,12 +51,12 @@ export const technologies = [
   },
   {
     name: "Java",
-    type: "Linguagem",
+    type: "Linguage",
     src: javaIcon,
   },
   {
     name: "Python",
-    type: "Linguagem",
+    type: "Linguage",
     src: pythonIcon,
   },
   {
