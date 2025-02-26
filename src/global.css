@@ -1,11 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 * {
   outline: none;
   scroll-behavior: smooth;
-  -webkit-tap-highlight-color: transparent;
+  font-family: "Poppins", serif;
 }
 
 ::-webkit-scrollbar {
@@ -21,3 +30,6 @@
   background: #fff;
   border-radius: 4px;
 }
+
+@custom-variant @max-md (@media (width <= 576px));
+@custom-variant @min-md (@media (width > 576px));
