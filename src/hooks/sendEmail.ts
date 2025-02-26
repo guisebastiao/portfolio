@@ -1,15 +1,21 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
 
-import { SERVICE_KEY, TEMPLATE_KEY, PUBLIC_KEY } from "../utils/config";
+import { PUBLIC_KEY, SERVICE_KEY, TEMPLATE_KEY } from "@/utils/env";
+
+export interface SendEmailProps {
+  name: string;
+  email: string;
+  subject: string;
+}
 
 const useSendEmail = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const sendEmail = async ({ name, email, subject }) => {
+  const sendEmail = async ({ name, email, subject }: SendEmailProps) => {
     setLoading(true);
     setError(false);
     setSuccess(false);
@@ -21,12 +27,10 @@ const useSendEmail = () => {
       toast.success("Seu e-mail foi enviado com sucesso.");
       setSuccess(true);
     } catch (error) {
-      console.log(error);
       setError(true);
       setLoading(false);
 
       toast.error("Algo deu errado, tente novamente mais tarde.");
-      console.error("Error sending email, please try again later.");
     } finally {
       setLoading(false);
     }
