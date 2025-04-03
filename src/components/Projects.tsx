@@ -25,7 +25,7 @@ export const Projects = () => {
           participar de diversos desafios.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center sm:px-10">
+      <div className="flex flex-wrap gap-3 justify-center">
         {currentProjects.map(
           ({ name, description, cover, link, tecs, favorite }) => (
             <ProjectContent

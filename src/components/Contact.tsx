@@ -30,7 +30,7 @@ export const Contact = () => {
   return (
     <section
       className="max-w-6xl w-full min-h-screen flex items-center justify-center flex-col gap-12 py-5"
-      data-container="3"
+      data-container="4"
     >
       <div className="w-full h-3/6 flex flex-wrap items-start justify-center gap-16">
         <div className="flex flex-col max-w-96 w-full gap-14 justify-start">
@@ -70,7 +70,6 @@ export const Contact = () => {
         </div>
 
         <form
-          action="POST"
           className="max-w-[420px] w-full p-3 flex flex-col gap-3"
           onSubmit={contactForm.handleSubmit(handleSendEmail)}
         >
@@ -127,7 +126,7 @@ export const Contact = () => {
           </label>
           <button
             type="submit"
-            className="h-9 flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition disabled:bg-zinc-500"
+            className="h-9 flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition disabled:bg-zinc-500 cursor-pointer disabled:cursor-wait"
             disabled={loading}
           >
             {loading ? (

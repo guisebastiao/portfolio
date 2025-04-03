@@ -1,5 +1,7 @@
 import { TypedText } from "@/components/TypedText";
 import myPhoto from "@/assets/my-photo.png";
+import downloadCv from "@/assets/cv.pdf";
+import { Download } from "lucide-react";
 
 export const Home = () => {
   return (
@@ -21,6 +23,14 @@ export const Home = () => {
           meu objetivo é trabalhar como programador e colaborar em novos
           projetos.
         </span>
+        <a
+          href={downloadCv}
+          download="Curriculo_Guilherme.pdf"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 bg-indigo-500 rounded-lg"
+        >
+          <Download className="text-white size-5" />
+          <span className="text-white">Baixar CV</span>
+        </a>
       </article>
       <figure>
         <img

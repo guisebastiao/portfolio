@@ -20,7 +20,7 @@ export const About = () => {
             </strong>{" "}
             na Universidade do Sul de Santa Catarina -{" "}
             <strong className="text-white font-bold">Unisul</strong>. Sou
-            apaixonado por programação e games, estou constantemente em busca de
+            apaixonado por programação, estou constantemente em busca de
             construir boas soluções para problemas do dia a dia por meio da
             programação. Quando possível estou me dedicando a aperfeiçoar meu
             aprendizado, explorando e adquirindo conhecimentos por novas
@@ -40,7 +40,7 @@ export const About = () => {
             <div className="w-[100px] flex flex-col justify-center items-center">
               <div className="flex items-end">
                 <Plus className="text-xl text-indigo-500 stroke-[5px] mb-1" />
-                <span className="text-4xl text-white font-bold">10</span>
+                <span className="text-4xl text-white font-bold">8</span>
               </div>
               <span className="text-zinc-400 font-normal capitalize">
                 Projetos

@@ -1,11 +1,16 @@
 import reactIcon from "@/assets/icons/react.svg";
+import nextjsIcon from "@/assets/icons/nextjs.svg";
 import nodejsIcon from "@/assets/icons/nodejs.svg";
 import expressIcon from "@/assets/icons/expressjs.svg";
 import fastifyIcon from "@/assets/icons/fastify.svg";
+import sequelizeIcon from "@/assets/icons/sequelize.svg";
+import prismaIcon from "@/assets/icons/prisma.svg";
 import javascriptIcon from "@/assets/icons/javascript.svg";
 import typescriptIcon from "@/assets/icons/typescript.svg";
 import mysqlIcon from "@/assets/icons/mysql.svg";
+import postgressqlIcon from "@/assets/icons/postgresql.svg";
 import javaIcon from "@/assets/icons/java.svg";
+import springIcon from "@/assets/icons/spring.svg";
 import pythonIcon from "@/assets/icons/python.svg";
 import htmlIcon from "@/assets/icons/html5.svg";
 import cssIcon from "@/assets/icons/css3.svg";
@@ -16,8 +21,13 @@ import gitIcon from "@/assets/icons/git.svg";
 export const technologies = [
   {
     name: "React",
-    type: "Lib",
+    type: "Library",
     src: reactIcon,
+  },
+  {
+    name: "NextJS",
+    type: "React Framework",
+    src: nextjsIcon,
   },
   {
     name: "NodeJS",
@@ -35,6 +45,16 @@ export const technologies = [
     src: fastifyIcon,
   },
   {
+    name: "Sequelize",
+    type: "ORM",
+    src: sequelizeIcon,
+  },
+  {
+    name: "Prisma",
+    type: "ORM",
+    src: prismaIcon,
+  },
+  {
     name: "JavaScript",
     type: "Linguage",
     src: javascriptIcon,
@@ -50,9 +70,19 @@ export const technologies = [
     src: mysqlIcon,
   },
   {
+    name: "PostgresSQL",
+    type: "Database",
+    src: postgressqlIcon,
+  },
+  {
     name: "Java",
     type: "Linguage",
     src: javaIcon,
+  },
+  {
+    name: "SpringBoot",
+    type: "Java Framework",
+    src: springIcon,
   },
   {
     name: "Python",

@@ -72,6 +72,7 @@ export const Header = () => {
 
   return (
     <header className="fixed w-full h-16 flex justify-center items-center bg-zinc-950 z-[10000]">
+      <div className="fixed w-full h-12 top-16 bg-gradient-to-b from-zinc-950"></div>
       <nav className="flex items-center h-9/12 bg-zinc-900 border border-zinc-700 rounded-xl py-1 px-1 @max-md:hidden">
         <ul className="inline-flex text-zinc-400 h-full">
           <li
@@ -127,6 +128,20 @@ export const Header = () => {
               data-btn-container="3"
               onClick={handleNavigate}
             >
+              <span>Graduação</span>
+            </button>
+          </li>
+          <li
+            className={twMerge(
+              "w-full h-full transition-all px-2.5 rounded-lg",
+              isActiveContainer === 4 && "bg-zinc-300 text-zinc-950"
+            )}
+          >
+            <button
+              className="min-w-18 flex items-center justify-center gap-2 h-full cursor-pointer"
+              data-btn-container="4"
+              onClick={handleNavigate}
+            >
               <span>Contato</span>
             </button>
           </li>
@@ -134,28 +149,30 @@ export const Header = () => {
       </nav>
       <nav className="w-full h-full flex items-center justify-start px-4 bg-zinc-950 z-[10000] @min-md:hidden">
         <button
-          className="size-8.5 bg-zinc-300 rounded-md flex items-center justify-center cursor-pointer hover:bg-zinc-50 transition"
+          className="relative size-8.5 bg-zinc-300 rounded-md flex items-center justify-center cursor-pointer hover:bg-zinc-50 transition"
           onClick={() => setMenuOpen(!menuIsOpen)}
         >
-          {menuIsOpen ? <X /> : <Menu />}
+          <X
+            className={twMerge(
+              "absolute opacity-0 transition-all duration-500",
+              menuIsOpen && "opacity-100 transition-all duration-500"
+            )}
+          />
+          <Menu
+            className={twMerge(
+              "absolute opacity-0 transition-all duration-500",
+              !menuIsOpen && "opacity-100 transition-all duration-500"
+            )}
+          />
         </button>
       </nav>
       <div
         className={twMerge(
-          "fixed top-16 w-full transition-all duration-500",
-          menuIsOpen
-            ? "h-screen bg-zinc-950 animate-in slide-in-from-top flex items-start justify-center"
-            : "h-16 bg-gradient-to-t to-zinc-950 from-transparent slide-out-to-top"
+          "fixed top-16 w-full h-screen transition-all duration-500 flex items-start justify-center overflow-hidden bg-zinc-950",
+          menuIsOpen ? "h-[calc(100vh-56px)]" : "h-0"
         )}
       >
-        <ul
-          className={twMerge(
-            "flex flex-col gap-3.5 w-9/12 py-4",
-            menuIsOpen
-              ? "transition-all delay-150 opacity-100 visible"
-              : "opacity-0 invisible"
-          )}
-        >
+        <ul className="flex flex-col gap-3.5 w-9/12 py-4">
           <li>
             <button
               className={twMerge(
@@ -200,6 +217,18 @@ export const Header = () => {
                 isActiveContainer === 3 && "bg-zinc-300 text-zinc-950"
               )}
               data-btn-container="3"
+              onClick={handleNavigate}
+            >
+              <span>Graduação</span>
+            </button>
+          </li>
+          <li>
+            <button
+              className={twMerge(
+                "w-full h-full border rounded-lg bg-zinc-900 border-zinc-700 text-zinc-400 px-5 py-2.5 cursor-pointer",
+                isActiveContainer === 4 && "bg-zinc-300 text-zinc-950"
+              )}
+              data-btn-container="4"
               onClick={handleNavigate}
             >
               <span>Contato</span>
