@@ -1,83 +1,58 @@
-import lifeshotsBackground from "@/assets/projects-backgrounds/lifeshots.png";
-import todoBackground from "@/assets/projects-backgrounds/todo.png";
-import shoppingCartBackground from "@/assets/projects-backgrounds/shoppingCart.png";
-import ticTacToeBackground from "@/assets/projects-backgrounds/ticTacToe.png";
-import flappyBirdBackground from "@/assets/projects-backgrounds/flappyBird.png";
-import termoBackground from "@/assets/projects-backgrounds/termo.png";
-import snakeGameBackground from "@/assets/projects-backgrounds/snakeGame.png";
-import memoryGameBackground from "@/assets/projects-backgrounds/memoryGame.png";
-
 export const projects = [
   {
-    name: "LifeShots",
-    description:
-      "LifeShots é uma rede social simples. Ela permite aos usuários publicar stories e publicações, interagir com curtidas e comentários, além de construir conexões de seguidores.",
-    cover: lifeshotsBackground,
-    link: "https://github.com/guisebastiao/lifeshots",
-    tecs: ["React", "Tailwind", "ChadCn", "Express", "SQL"],
-    favorite: true,
+    name: "Ecommerce",
+    description: "Frontend de um e-commerce com pagamentos fictícios, autenticação e muito mais.",
+    cover: "https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png",
+    link: "https://github.com/guisebastiao/ecommerce",
+    stacks: ["TypeScript", "React", "Tailwind", "ChadCn"],
+  },
+  {
+    name: "Ecommerce API",
+    description: "Uma API RESTful desenvolvida com Spring Boot para gerenciar um sistema de e-commerce.",
+    cover: "https://cdn.dribbble.com/userupload/21058411/file/original-12774ab7f98694b8e6425c6684f71e2e.png",
+    link: "https://github.com/guisebastiao/ecommerce-api",
+    stacks: ["Java", "SpringBoot", "Auth0", "Docker"],
   },
   {
     name: "ToDoList",
-    description:
-      "Este projeto é uma aplicação de lista de tarefas (To-Do), criada com React e Fastify junto com o MySQL.",
-    cover: todoBackground,
+    description: "Este projeto é uma aplicação de lista de tarefas.",
+    cover: "https://cdn.dribbble.com/userupload/17819625/file/original-6d52793f1189a0702545d9d0066a28a9.png",
     link: "https://github.com/guisebastiao/To-Do",
-    tecs: ["React", "ChadCN", "Tailwind", "Fastify", "Prisma", "SQL"],
-    favorite: false,
-  },
-  {
-    name: "Shopping Cart",
-    description:
-      "ShoppingCart é um carrinho de compras feito com ReactJS e tailwind, utilizando a API do mercado livre.",
-    cover: shoppingCartBackground,
-    link: "https://github.com/guisebastiao/shoppingCart",
-    tecs: ["React", "JavaScript"],
-    favorite: false,
+    stacks: ["React", "Tailwind", "Fastify", "Prisma", "Postgres"],
   },
   {
     name: "Jogo da Velha",
-    description:
-      "O famoso e clássico jogo da velha, contruido com HTML, CSS e JavaScript.",
-    cover: ticTacToeBackground,
+    description: "O famoso e clássico jogo da velha.",
+    cover: "https://cdn.dribbble.com/userupload/34526977/file/original-1302ef3f7bac893e82547b1cad4cdfbb.png",
     link: "https://github.com/guisebastiao/jogoDaVelha",
-    tecs: ["HTML", "CSS", "JavaScript"],
-    favorite: false,
+    stacks: ["HTML", "CSS", "JavaScript"],
   },
   {
     name: "Flappy Bird",
-    description:
-      "Este projeto contém o clone do famoso jogo Flappy Bird, construido com apenas HTML, CSS e javascript.",
-    cover: flappyBirdBackground,
+    description: "Este projeto contém o clone do famoso jogo Flappy Bird.",
+    cover: "https://cdn.dribbble.com/userupload/20949862/file/original-90e41eb9569b407c4887b2eed64f6f06.png",
     link: "https://github.com/guisebastiao/flappyBird",
-    tecs: ["HTML", "CSS", "JavaScript", "Canvas"],
-    favorite: false,
+    stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
   },
   {
     name: "Termo",
-    description:
-      "Este projeto contém um clone do popular jogo de palavras Termo.",
-    cover: termoBackground,
+    description: "Este projeto contém um clone do popular jogo de palavras Termo.",
+    cover: "https://www.colunatech.com.br/wp-content/uploads/2022/08/termo-dueto-quarteto-696x392.jpg",
     link: "https://github.com/guisebastiao/termo",
-    tecs: ["HTML", "CSS", "JavaScript"],
-    favorite: false,
+    stacks: ["HTML", "CSS", "JavaScript"],
   },
   {
     name: "Jogo da Cobrinha",
-    description:
-      "Esse projeto contém o jogo da cobrinha famoso Snake Game, construido com apenas HTML, CSS e javascript.",
-    cover: snakeGameBackground,
+    description: "Esse projeto contém o jogo da cobrinha famoso Snake Game.",
+    cover: "https://cdn.dribbble.com/userupload/21564247/file/original-1298ff7d76f68556985bb77f7fbf04a0.jpg",
     link: "https://github.com/guisebastiao/jogoDaCobrinha",
-    tecs: ["HTML", "CSS", "JavaScript", "Canvas"],
-    favorite: false,
+    stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
   },
   {
     name: "Jogo da Memória",
-    description:
-      "Projeto do clássico jogo da memória, construido com apenas HTML, CSS e javascript.",
-    cover: memoryGameBackground,
+    description: "Projeto do clássico jogo da memória.",
+    cover: "https://cdn.dribbble.com/userupload/19475791/file/original-767411144fd2721210a82f6863c33a0e.png",
     link: "https://github.com/guisebastiao/jogoDaCobrinha",
-    tecs: ["HTML", "CSS", "JavaScript"],
-    favorite: false,
+    stacks: ["HTML", "CSS", "JavaScript"],
   },
 ];

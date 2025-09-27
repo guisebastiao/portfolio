@@ -1,6 +1,6 @@
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { toast } from "sonner";
-import emailjs from "@emailjs/browser";
 
 import { PUBLIC_KEY, SERVICE_KEY, TEMPLATE_KEY } from "@/utils/env";
 

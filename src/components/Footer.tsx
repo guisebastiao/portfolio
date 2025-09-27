@@ -1,13 +1,10 @@
 export const Footer = () => {
   return (
     <footer className="w-full min-h-20 flex items-center justify-center flex-col gap-2">
-      <span className="text-sm text-zinc-200 text-center font-normal">
-        <strong>Copyright &copy; 2025</strong> - Guilherme Fernandes Sebastião,
-        todos os direitos reservados.
+      <span className="text-xs text-muted-foreground text-center font-normal">
+        <strong>Copyright &copy; {new Date().getFullYear()}</strong> - Guilherme Fernandes Sebastião, todos os direitos reservados.
       </span>
-      <span className="text-base text-zinc-50 text-center font-medium">
-        Tubarão - SC, Brasil.
-      </span>
+      <span className="text-sm text-center font-medium">Tubarão - SC, Brasil.</span>
     </footer>
   );
 };

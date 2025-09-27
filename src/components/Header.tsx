@@ -1,241 +1,204 @@
-import { useState, useEffect, useRef, MouseEvent } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import profileImg from "@/assets/profile.jpg";
+import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
-import { Menu, X } from "lucide-react";
+
+const NAV_ITEMS = [
+  { label: "Início", id: 0 },
+  { label: "Sobre", id: 1 },
+  { label: "Projetos", id: 2 },
+  { label: "Experiência", id: 3 },
+  { label: "Contato", id: 4 },
+];
 
 export const Header = () => {
-  const containers = useRef<NodeListOf<Element>>(undefined);
-  const [isActiveContainer, setActiveContainer] = useState<number>(0);
-  const [menuIsOpen, setMenuOpen] = useState(false);
-  const margin = 64;
+  const [active, setActive] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    containers.current = document.querySelectorAll("[data-container]");
+    const sections = document.querySelectorAll("[data-container]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible) {
+          const index = Array.from(sections).indexOf(visible.target);
+          setActive(index);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
-
-  const handleScroll = () => {
-    if (!containers.current) {
-      return;
-    }
-
-    containers.current?.forEach((container, index) => {
-      const rect = container.getBoundingClientRect();
-
-      if (rect.top <= window.innerHeight - margin && rect.bottom >= margin) {
-        setActiveContainer(index);
-      }
-    });
-  };
-
-  const handleResize = () => {
-    if (window.innerWidth > 400) {
-      setMenuOpen(false);
-    }
-  };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const handleNavigate = (event: MouseEvent<HTMLButtonElement>) => {
-    const btnValue = Number(event.currentTarget.dataset.btnContainer);
-
+  const handleNavigate = (id: number) => {
     setMenuOpen(false);
-
-    if (isNaN(btnValue)) {
-      return;
+    const target = document.querySelectorAll("[data-container]")[id] as HTMLElement;
+    if (target) {
+      const offset = 64;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
-
-    const container = containers.current?.[btnValue].getBoundingClientRect();
-
-    if (!container) {
-      return;
-    }
-
-    window.scrollTo({
-      top: container?.top + window.scrollY - margin,
-    });
   };
 
   useEffect(() => {
-    const bodyStyle = document.body.style;
+    const storage = localStorage.getItem("theme");
+    const html = document.documentElement;
 
-    menuIsOpen
-      ? (bodyStyle.overflow = "hidden")
-      : (bodyStyle.overflow = "auto");
-  }, [menuIsOpen]);
+    if (storage) {
+      const isDark = JSON.parse(storage);
+      setDarkMode(isDark);
+      html.classList.toggle("dark", isDark);
+    } else {
+      html.classList.add("dark");
+      setDarkMode(true);
+      localStorage.setItem("theme", JSON.stringify(true));
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const html = document.documentElement;
+    const newTheme = !darkMode;
+
+    setDarkMode(newTheme);
+    html.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", JSON.stringify(newTheme));
+  };
 
   return (
-    <header className="fixed w-full h-16 flex justify-center items-center bg-zinc-950 z-[10000]">
-      <div className="fixed w-full h-12 top-16 bg-gradient-to-b from-zinc-950"></div>
-      <nav className="flex items-center h-9/12 bg-zinc-900 border border-zinc-700 rounded-xl py-1 px-1 @max-md:hidden">
-        <ul className="inline-flex text-zinc-400 h-full">
-          <li
-            className={twMerge(
-              "w-full h-full transition-all px-2.5 rounded-lg",
-              isActiveContainer === 0 && "bg-zinc-300 text-zinc-950"
-            )}
+    <header className="fixed w-full h-16 bg-zinc-200 dark:bg-zinc-900 border-b z-50 flex justify-center">
+      <div className="flex-1 max-w-7xl flex justify-between items-center px-4">
+        <div className="flex items-center gap-2">
+          <div className="relative flex items-center justify-center size-8.5 rounded-full overflow-hidden border-2 border-muted-foreground">
+            <img
+              src={profileImg}
+              alt="profile-img"
+              className="absolute size-full object-cover"
+            />
+          </div>
+          <h1 className="text-muted-foreground text-[15px] font-semibold">
+            <span className="font-black text-foreground">Gui.</span> Sebastião
+          </h1>
+        </div>
+        <div className="flex gap-4 items-center">
+          <nav className="hidden md:flex h-full items-center gap-4">
+            {NAV_ITEMS.map(({ label, id }) => (
+              <button
+                key={id}
+                onClick={() => handleNavigate(id)}
+                className={twMerge("relative flex items-center gap-2 px-2 h-9 text-muted-foreground font-medium cursor-pointer", active === id && "text-foreground")}
+              >
+                <span className="text-sm">{label}</span>
+                {active === id && (
+                  <motion.div
+                    layoutId="underline"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-blue-500 rounded-full"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </button>
+            ))}
+          </nav>
+          <button
+            className="size-9 flex items-center justify-center relative cursor-pointer hover:border dark:hover:bg-zinc-800 rounded-lg transition"
+            onClick={toggleTheme}
           >
-            <button
-              className="min-w-18 flex items-center justify-center gap-2 h-full cursor-pointer"
-              data-btn-container="0"
-              onClick={handleNavigate}
-            >
-              <span>Início</span>
-            </button>
-          </li>
-          <li
-            className={twMerge(
-              "w-full h-full transition-all px-2.5 rounded-lg",
-              isActiveContainer === 1 && "bg-zinc-300 text-zinc-950"
-            )}
+            <Sun className={twMerge("absolute size-5", darkMode ? "opacity-100" : "opacity-0")} />
+            <Moon className={twMerge("absolute size-5", !darkMode ? "opacity-100" : "opacity-0")} />
+          </button>
+          <button
+            className="md:hidden size-9 flex items-center justify-center relative z-[60]"
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
-            <button
-              className="min-w-18 flex items-center justify-center gap-2 h-full cursor-pointer"
-              data-btn-container="1"
-              onClick={handleNavigate}
-            >
-              <span>Sobre</span>
-            </button>
-          </li>
-          <li
-            className={twMerge(
-              "w-full h-full transition-all px-2.5 rounded-lg",
-              isActiveContainer === 2 && "bg-zinc-300 text-zinc-950"
+            <X className={twMerge("absolute", menuOpen ? "opacity-100" : "opacity-0")} />
+            <Menu className={twMerge("absolute", !menuOpen ? "opacity-100" : "opacity-0")} />
+          </button>
+          <AnimatePresence>
+            {menuOpen && (
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={sidebarVariants}
+                transition={{ type: "spring", stiffness: 30, damping: 20 }}
+                className="fixed top-0 left-0 w-full h-screen bg-zinc-200 dark:bg-zinc-900 md:hidden flex justify-center items-center z-50"
+                style={{ clipPath: "circle(0px at calc(100% - 40px) 40px)" }}
+              >
+                <motion.ul
+                  className="flex flex-col gap-4 w-9/12 mx-auto"
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={navVariants}
+                >
+                  {NAV_ITEMS.map(({ label, id }) => (
+                    <motion.li
+                      key={id}
+                      variants={itemVariants}
+                      className="text-center"
+                    >
+                      <button
+                        onClick={() => handleNavigate(id)}
+                        className={twMerge("relative w-full py-3 text-base font-medium text-muted-foreground hover:text-foreground", active === id && "text-foreground font-bold")}
+                      >
+                        {label}
+                      </button>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
             )}
-          >
-            <button
-              className="min-w-18 flex items-center justify-center gap-2 h-full cursor-pointer"
-              data-btn-container="2"
-              onClick={handleNavigate}
-            >
-              <span>Projetos</span>
-            </button>
-          </li>
-          <li
-            className={twMerge(
-              "w-full h-full transition-all px-2.5 rounded-lg",
-              isActiveContainer === 3 && "bg-zinc-300 text-zinc-950"
-            )}
-          >
-            <button
-              className="min-w-18 flex items-center justify-center gap-2 h-full cursor-pointer"
-              data-btn-container="3"
-              onClick={handleNavigate}
-            >
-              <span>Graduação</span>
-            </button>
-          </li>
-          <li
-            className={twMerge(
-              "w-full h-full transition-all px-2.5 rounded-lg",
-              isActiveContainer === 4 && "bg-zinc-300 text-zinc-950"
-            )}
-          >
-            <button
-              className="min-w-18 flex items-center justify-center gap-2 h-full cursor-pointer"
-              data-btn-container="4"
-              onClick={handleNavigate}
-            >
-              <span>Contato</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <nav className="w-full h-full flex items-center justify-start px-4 bg-zinc-950 z-[10000] @min-md:hidden">
-        <button
-          className="relative size-8.5 bg-zinc-300 rounded-md flex items-center justify-center cursor-pointer hover:bg-zinc-50 transition"
-          onClick={() => setMenuOpen(!menuIsOpen)}
-        >
-          <X
-            className={twMerge(
-              "absolute opacity-0 transition-all duration-500",
-              menuIsOpen && "opacity-100 transition-all duration-500"
-            )}
-          />
-          <Menu
-            className={twMerge(
-              "absolute opacity-0 transition-all duration-500",
-              !menuIsOpen && "opacity-100 transition-all duration-500"
-            )}
-          />
-        </button>
-      </nav>
-      <div
-        className={twMerge(
-          "fixed top-16 w-full h-screen transition-all duration-500 flex items-start justify-center overflow-hidden bg-zinc-950",
-          menuIsOpen ? "h-[calc(100vh-56px)]" : "h-0"
-        )}
-      >
-        <ul className="flex flex-col gap-3.5 w-9/12 py-4">
-          <li>
-            <button
-              className={twMerge(
-                "w-full h-full border rounded-lg bg-zinc-900 border-zinc-700 text-zinc-400 px-5 py-2.5 cursor-pointer",
-                isActiveContainer === 0 &&
-                  "bg-zinc-200 text-zinc-950 border-transparent"
-              )}
-              data-btn-container="0"
-              onClick={handleNavigate}
-            >
-              <span>Início</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={twMerge(
-                "w-full h-full border rounded-lg bg-zinc-900 border-zinc-700 text-zinc-400 px-5 py-2.5 cursor-pointer",
-                isActiveContainer === 1 && "bg-zinc-300 text-zinc-950"
-              )}
-              data-btn-container="1"
-              onClick={handleNavigate}
-            >
-              <span>Sobre</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={twMerge(
-                "w-full h-full border rounded-lg bg-zinc-900 border-zinc-700 text-zinc-400 px-5 py-2.5 cursor-pointer",
-                isActiveContainer === 2 && "bg-zinc-300 text-zinc-950"
-              )}
-              data-btn-container="2"
-              onClick={handleNavigate}
-            >
-              <span>Projetos</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={twMerge(
-                "w-full h-full border rounded-lg bg-zinc-900 border-zinc-700 text-zinc-400 px-5 py-2.5 cursor-pointer",
-                isActiveContainer === 3 && "bg-zinc-300 text-zinc-950"
-              )}
-              data-btn-container="3"
-              onClick={handleNavigate}
-            >
-              <span>Graduação</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={twMerge(
-                "w-full h-full border rounded-lg bg-zinc-900 border-zinc-700 text-zinc-400 px-5 py-2.5 cursor-pointer",
-                isActiveContainer === 4 && "bg-zinc-300 text-zinc-950"
-              )}
-              data-btn-container="4"
-              onClick={handleNavigate}
-            >
-              <span>Contato</span>
-            </button>
-          </li>
-        </ul>
+          </AnimatePresence>
+        </div>
       </div>
     </header>
   );
+};
+
+const sidebarVariants: Variants = {
+  open: {
+    clipPath: "circle(140% at calc(100% - 40px) 40px)",
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 20,
+    },
+  },
+  closed: {
+    clipPath: "circle(0px at calc(100% - 40px) 40px)",
+    transition: {
+      delay: 0.2,
+      type: "spring",
+      stiffness: 150,
+      damping: 20,
+    },
+  },
+};
+
+const navVariants: Variants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.3 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+const itemVariants: Variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+  },
+  closed: {
+    opacity: 0,
+    y: 50,
+  },
 };

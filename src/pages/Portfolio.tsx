@@ -3,25 +3,52 @@ import { ReactLenis } from "lenis/react";
 import { Header } from "@/components/Header";
 import { Home } from "@/components/Home";
 import { About } from "@/components/About";
-import { Projects } from "@/components/Projects";
-import { Graduation } from "@/components/Graduation";
+import { Project } from "@/components/Project";
+import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { Detail } from "@/components/Detail";
+import { motion, Variants } from "framer-motion";
 
 export const Portfolio = () => {
   return (
     <ReactLenis root>
-      <main className="flex items-center flex-col bg-zinc-950">
+      <div className="relative flex flex-col items-center bg-zinc-100 dark:bg-zinc-950 overflow-hidden">
+        <Detail />
         <Header />
-        <div className="mt-16 px-3">
+        <motion.main
+          variants={containerVariant}
+          className="max-w-6xl flex items-center flex-col gap-32 mt-16 px-2"
+        >
           <Home />
           <About />
-          <Projects />
-          <Graduation />
+          <Project />
+          <Experience />
           <Contact />
-        </div>
+        </motion.main>
         <Footer />
-      </main>
+      </div>
     </ReactLenis>
   );
+};
+
+const containerVariant: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+      staggerChildren: 0.4,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+    },
+  },
 };
