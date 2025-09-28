@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/context/ThemeContext";
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { createRoot } from "react-dom/client";
@@ -12,7 +13,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.m
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    <Toaster theme="dark" />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+      <Toaster theme="dark" />
+    </ThemeProvider>
   </StrictMode>
 );

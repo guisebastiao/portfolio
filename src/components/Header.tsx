@@ -1,4 +1,5 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 import { useState, useEffect } from "react";
@@ -13,9 +14,10 @@ const NAV_ITEMS = [
 ];
 
 export const Header = () => {
+  const { theme, toggleTheme } = useTheme();
+
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const sections = document.querySelectorAll("[data-container]");
@@ -47,30 +49,6 @@ export const Header = () => {
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: "smooth" });
     }
-  };
-
-  useEffect(() => {
-    const storage = localStorage.getItem("theme");
-    const html = document.documentElement;
-
-    if (storage) {
-      const isDark = JSON.parse(storage);
-      setDarkMode(isDark);
-      html.classList.toggle("dark", isDark);
-    } else {
-      html.classList.add("dark");
-      setDarkMode(true);
-      localStorage.setItem("theme", JSON.stringify(true));
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const html = document.documentElement;
-    const newTheme = !darkMode;
-
-    setDarkMode(newTheme);
-    html.classList.toggle("dark", newTheme);
-    localStorage.setItem("theme", JSON.stringify(newTheme));
   };
 
   return (
@@ -111,8 +89,8 @@ export const Header = () => {
             className="size-9 flex items-center justify-center relative cursor-pointer hover:border dark:hover:bg-zinc-800 rounded-lg transition"
             onClick={toggleTheme}
           >
-            <Sun className={twMerge("absolute size-5", darkMode ? "opacity-100" : "opacity-0")} />
-            <Moon className={twMerge("absolute size-5", !darkMode ? "opacity-100" : "opacity-0")} />
+            <Sun className={twMerge("absolute size-5 transition-opacity", theme === "dark" ? "opacity-100" : "opacity-0")} />
+            <Moon className={twMerge("absolute size-5 transition-opacity", theme === "light" ? "opacity-100" : "opacity-0")} />
           </button>
           <button
             className="md:hidden size-9 flex items-center justify-center relative z-[60]"
