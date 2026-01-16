@@ -1,4 +1,5 @@
 import { VscVscodeInsiders } from "react-icons/vsc";
+import { TbBrandOauth } from "react-icons/tb";
 import { FaJava } from "react-icons/fa";
 import {
   SiJavascript,
@@ -69,6 +70,7 @@ export const stacks = {
     { name: "Sequelize", type: "ORM", icon: SiSequelize },
     { name: "Prisma", type: "ORM", icon: SiPrisma },
     { name: "Auth0", type: "Authentication", icon: SiAuth0 },
+    { name: "OAuth2", type: "Authentication", icon: TbBrandOauth },
     { name: "JWT", type: "Library", icon: SiJsonwebtokens },
   ],
   database: [

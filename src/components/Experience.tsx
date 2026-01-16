@@ -1,10 +1,22 @@
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { BookmarkCheck, GraduationCap, MapPin, SquareArrowOutUpRight } from "lucide-react";
 import { certifications } from "@/utils/certifications";
 import { graduations } from "@/utils/graduations";
+import { Spinner } from "@/components/ui/spinner";
 import { motion, Variants } from "framer-motion";
-import { Spinner } from "@/components/Spinner";
 import { Document, Page } from "react-pdf";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  BookmarkCheck,
+  GraduationCap,
+  MapPin,
+  SquareArrowOutUpRight,
+} from "lucide-react";
 
 export const Experience = () => {
   return (
@@ -48,23 +60,26 @@ export const Experience = () => {
             <h1 className="text-lg font-bold">Formação Acadêmica</h1>
           </div>
           {graduations.map((grad, index) => (
-            <div
-              key={index}
-              className="space-y-3"
-            >
+            <div key={index} className="space-y-3">
               <div className="space-y-2">
                 <h2 className="font-semibold">{grad.course}</h2>
-                <p className="text-foreground text-sm leading-relaxed">{grad.institution}</p>
+                <p className="text-foreground text-sm leading-relaxed">
+                  {grad.institution}
+                </p>
                 <div className="flex items-center gap-2">
                   <span className="block size-2 rounded-full bg-emerald-500" />
-                  <span className="text- text-[13px] leading-relaxed">{grad.status}</span>
+                  <span className="text- text-[13px] leading-relaxed">
+                    {grad.status}
+                  </span>
                 </div>
               </div>
               <div className="space-y-1.5">
                 <h3 className="font-medium tracking-wide">Localização</h3>
                 <div className="flex items-center gap-1">
                   <MapPin className="size-4 text-blue-500" />
-                  <span className="text-muted-foreground text-[13px]">{grad.location}</span>
+                  <span className="text-muted-foreground text-[13px]">
+                    {grad.location}
+                  </span>
                 </div>
               </div>
             </div>
@@ -91,9 +106,13 @@ export const Experience = () => {
                 <div className="space-y-0.5 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="aspect-square size-2 rounded-full bg-blue-500" />
-                    <h2 className="text-foreground text-[15px] font-semibold">{certification.name}</h2>
+                    <h2 className="text-foreground text-[15px] font-semibold">
+                      {certification.name}
+                    </h2>
                   </div>
-                  <p className="text-muted-foreground text-xs leading-relaxed pl-4">{certification.description}</p>
+                  <p className="text-muted-foreground text-xs leading-relaxed pl-4">
+                    {certification.description}
+                  </p>
                 </div>
                 {certification.certificate && (
                   <Dialog>
@@ -104,8 +123,12 @@ export const Experience = () => {
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
-                        <DialogTitle className="line-clamp-1">{certification.name}</DialogTitle>
-                        <DialogDescription>{certification.description}</DialogDescription>
+                        <DialogTitle className="line-clamp-1">
+                          {certification.name}
+                        </DialogTitle>
+                        <DialogDescription>
+                          {certification.description}
+                        </DialogDescription>
                       </DialogHeader>
                       <Document
                         file={certification.certificate}

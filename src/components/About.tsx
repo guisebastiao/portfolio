@@ -2,6 +2,14 @@ import { motion, Variants } from "framer-motion";
 import { stacks } from "@/utils/stacks";
 
 export const About = () => {
+  const handleGetAgeYears = (): number => {
+    const birthDate = new Date("2005-12-10");
+    const now = new Date();
+
+    const ageMs = now.getTime() - birthDate.getTime();
+    return Math.floor(ageMs / (1000 * 60 * 60 * 24 * 365.25));
+  };
+
   return (
     <section
       data-container="1"
@@ -26,7 +34,8 @@ export const About = () => {
           exit="exit"
           viewport={{ amount: 0.5 }}
         >
-          Sou desenvolvedor e entusiasta de tecnologia, em constante busca por evolução pessoal e pela qualidade no desenvolvimento de software
+          Sou desenvolvedor e entusiasta de tecnologia, em constante busca por
+          evolução pessoal e pela qualidade no desenvolvimento de software
         </motion.p>
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -40,16 +49,32 @@ export const About = () => {
         >
           <h3 className="text-xl font-semibold">Minha Jornada</h3>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de 19 anos, atualmente moro em Tubarão-SC. A minha paixão por computação começou cedo, uma curiosidade que me impulsionou a querer ir além de ser
-            um mero espectador e me tornar um criador. Essa motivação me guia em minha atual formação superior, um passo que considero fundamental para adquirir a disciplina e a base de conhecimento necessárias para
-            transformar meu interesse em uma carreira. Hoje, aplico essa mesma dedicação para desenvolver aplicações completas, eficientes e intuitivas.
+            Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de{" "}
+            {handleGetAgeYears()} anos, atualmente moro em Tubarão-SC. A minha
+            paixão por computação começou cedo, uma curiosidade que me
+            impulsionou a querer ir além de ser um mero espectador e me tornar
+            um criador. Essa motivação me guia em minha atual formação superior,
+            um passo que considero fundamental para adquirir a disciplina e a
+            base de conhecimento necessárias para transformar meu interesse em
+            uma carreira. Hoje, aplico essa mesma dedicação para desenvolver
+            aplicações completas, eficientes e intuitivas.
           </p>
           <ul className="space-y-4 text-foreground text-[13px] leading-relaxed">
             <li>🌎 Residente em Tubarão-SC, aberto a oportunidades remotas</li>
-            <li>📫 Aberto a um bate-papo sobre tecnologia, projetos e novas ideias</li>
-            <li>🚀 Focado em boas práticas de desenvolvimento e código limpo</li>
-            <li>🌱 Sempre aprendendo e explorando novas tecnologias em desenvolvimento</li>
-            <li>💻 Foco em Desenvolvimento Web com TypeScript, Java e frameworks modernos</li>
+            <li>
+              📫 Aberto a um bate-papo sobre tecnologia, projetos e novas ideias
+            </li>
+            <li>
+              🚀 Focado em boas práticas de desenvolvimento e código limpo
+            </li>
+            <li>
+              🌱 Sempre aprendendo e explorando novas tecnologias em
+              desenvolvimento
+            </li>
+            <li>
+              💻 Foco em Desenvolvimento Web com TypeScript, Java e frameworks
+              modernos
+            </li>
           </ul>
           <div className="flex gap-4">
             <div className="w-1/2 p-4 flex items-center justify-center flex-col bg-zinc-300 dark:bg-zinc-800 border rounded-lg">
@@ -73,13 +98,12 @@ export const About = () => {
           <h3 className="text-xl font-semibold">Stack Tecnológico</h3>
           <div className="space-y-5">
             {Object.entries(stacks).map(([category, items]) => (
-              <div
-                key={category}
-                className="space-y-2"
-              >
+              <div key={category} className="space-y-2">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-blue-500" />
-                  <h4 className="text-sm font-medium capitalize text-foreground">{category}</h4>
+                  <h4 className="text-sm font-medium capitalize text-foreground">
+                    {category}
+                  </h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {items.map(({ name, icon: Icon }) => (

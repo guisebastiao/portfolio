@@ -1,9 +1,9 @@
 import { contactSchema } from "@/schemas/contactSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SendEmailProps } from "@/hooks/sendEmail";
+import { Spinner } from "@/components/ui/spinner";
 import { motion, Variants } from "framer-motion";
 import { ScrollText, Send } from "lucide-react";
-import { Spinner } from "@/components/Spinner";
 import useSendEmail from "@/hooks/sendEmail";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
@@ -74,7 +74,8 @@ export const Contact = () => {
           exit="exit"
           viewport={{ amount: 0.5 }}
         >
-          Tem uma ideia, projeto ou apenas quer trocar uma ideia? Me manda uma mensagem, vou adorar conversar com você.
+          Tem uma ideia, projeto ou apenas quer trocar uma ideia? Me manda uma
+          mensagem, vou adorar conversar com você.
         </motion.p>
         <label htmlFor="name">
           <input
@@ -87,7 +88,9 @@ export const Contact = () => {
             className="w-full h-9 text-[13px] font-normal p-3 bg-zinc-200/80 dark:bg-zinc-900/70 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition aria-invalid:ring-transparent aria-invalid:border-destructive"
             aria-invalid={!!name}
           />
-          {name?.message && <p className="text-xs text-red-400 pt-1.5">{name?.message}</p>}
+          {name?.message && (
+            <p className="text-xs text-red-400 pt-1.5">{name?.message}</p>
+          )}
         </label>
         <label htmlFor="email">
           <input
@@ -100,7 +103,9 @@ export const Contact = () => {
             className="w-full h-9 text-[13px] font-normal p-3 bg-zinc-200/80 dark:bg-zinc-900/70 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition aria-invalid:ring-transparent aria-invalid:border-destructive"
             aria-invalid={!!email}
           />
-          {email?.message && <p className="text-xs text-red-400 pt-1.5">{email?.message}</p>}
+          {email?.message && (
+            <p className="text-xs text-red-400 pt-1.5">{email?.message}</p>
+          )}
         </label>
         <label htmlFor="subject">
           <textarea
@@ -112,7 +117,9 @@ export const Contact = () => {
             className="w-full h-29 text-[13px] font-normal p-3 bg-zinc-200/80 dark:bg-zinc-900/70 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none resize-none transition aria-invalid:ring-transparent aria-invalid:border-destructive"
             aria-invalid={!!subject}
           />
-          {subject?.message && <p className="text-xs text-red-400 pt-1.5">{subject?.message}</p>}
+          {subject?.message && (
+            <p className="text-xs text-red-400 pt-1.5">{subject?.message}</p>
+          )}
         </label>
         <button
           type="submit"

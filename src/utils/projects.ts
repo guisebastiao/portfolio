@@ -37,7 +37,7 @@ export const projects = [
   {
     name: "Termo",
     description: "Este projeto contém um clone do popular jogo de palavras Termo.",
-    cover: "https://www.colunatech.com.br/wp-content/uploads/2022/08/termo-dueto-quarteto-696x392.jpg",
+    cover: "https://criticalhits.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/01/wordle.0-768x512.jpg.webp",
     link: "https://github.com/guisebastiao/termo",
     stacks: ["HTML", "CSS", "JavaScript"],
   },
