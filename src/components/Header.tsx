@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { useTheme } from "@/context/ThemeContext";
+import { useTheme } from "@/hooks/use-theme";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 import { useState, useEffect } from "react";
@@ -21,17 +21,19 @@ export const Header = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll("[data-container]");
+    const options = {
+      root: null,
+      threshold: 0,
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting);
-        if (visible) {
-          const index = Array.from(sections).indexOf(visible.target);
-          setActive(index);
-        }
-      },
-      { threshold: 0.5 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.find((entry) => entry.isIntersecting);
+
+      if (visible) {
+        const index = Array.from(sections).indexOf(visible.target);
+        setActive(index);
+      }
+    }, options);
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
@@ -56,11 +58,7 @@ export const Header = () => {
       <div className="flex-1 max-w-7xl flex justify-between items-center px-4">
         <div className="flex items-center gap-2">
           <div className="relative flex items-center justify-center size-8.5 rounded-full overflow-hidden border-2 border-muted-foreground">
-            <img
-              src={profileImg}
-              alt="profile-img"
-              className="absolute size-full object-cover"
-            />
+            <img src={profileImg} alt="profile-img" className="absolute size-full object-cover" />
           </div>
           <h1 className="text-muted-foreground text-[15px] font-semibold">
             <span className="font-black text-foreground">Gui.</span> Sebastião
@@ -72,13 +70,16 @@ export const Header = () => {
               <button
                 key={id}
                 onClick={() => handleNavigate(id)}
-                className={twMerge("relative flex items-center gap-2 px-2 h-9 text-muted-foreground font-medium cursor-pointer", active === id && "text-foreground")}
+                className={twMerge(
+                  "relative flex items-center gap-2 px-2 h-9 text-muted-foreground font-medium cursor-pointer",
+                  active === id && "text-foreground",
+                )}
               >
                 <span className="text-sm">{label}</span>
                 {active === id && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-blue-500 rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -89,11 +90,15 @@ export const Header = () => {
             className="size-9 flex items-center justify-center relative cursor-pointer hover:border dark:hover:bg-zinc-800 rounded-lg transition"
             onClick={toggleTheme}
           >
-            <Sun className={twMerge("absolute size-5 transition-opacity", theme === "dark" ? "opacity-100" : "opacity-0")} />
-            <Moon className={twMerge("absolute size-5 transition-opacity", theme === "light" ? "opacity-100" : "opacity-0")} />
+            <Sun
+              className={twMerge("absolute size-5 transition-opacity", theme === "dark" ? "opacity-100" : "opacity-0")}
+            />
+            <Moon
+              className={twMerge("absolute size-5 transition-opacity", theme === "light" ? "opacity-100" : "opacity-0")}
+            />
           </button>
           <button
-            className="md:hidden size-9 flex items-center justify-center relative z-[60]"
+            className="md:hidden size-9 flex items-center justify-center relative z-60"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             <X className={twMerge("absolute", menuOpen ? "opacity-100" : "opacity-0")} />
@@ -118,14 +123,13 @@ export const Header = () => {
                   variants={navVariants}
                 >
                   {NAV_ITEMS.map(({ label, id }) => (
-                    <motion.li
-                      key={id}
-                      variants={itemVariants}
-                      className="text-center"
-                    >
+                    <motion.li key={id} variants={itemVariants} className="text-center">
                       <button
                         onClick={() => handleNavigate(id)}
-                        className={twMerge("relative w-full py-3 text-base font-medium text-muted-foreground hover:text-foreground", active === id && "text-foreground font-bold")}
+                        className={twMerge(
+                          "relative w-full py-3 text-base font-medium text-muted-foreground hover:text-foreground",
+                          active === id && "text-foreground font-bold",
+                        )}
                       >
                         {label}
                       </button>
@@ -163,7 +167,7 @@ const sidebarVariants: Variants = {
 
 const navVariants: Variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.2 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -177,6 +181,6 @@ const itemVariants: Variants = {
   },
   closed: {
     opacity: 0,
-    y: 50,
+    y: 70,
   },
 };

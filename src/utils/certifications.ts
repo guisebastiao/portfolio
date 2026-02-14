@@ -3,6 +3,14 @@ import desenvolvimento_web_completo from "@/assets/certifications/desenvolviment
 import networking_essentials from "@/assets/certifications/networking_essentials.pdf";
 import react_zero_maestria from "@/assets/certifications/react_zero_maestria.pdf";
 import dev_the_devs from "@/assets/certifications/dev_the_devs.pdf";
+import psc from "@/assets/certifications/psc_certificate.pdf";
+import ms from "@/assets/certifications/ms_certificate.pdf";
+import acs from "@/assets/certifications/acs_certificate.pdf";
+import acc from "@/assets/certifications/acc_certificate.pdf";
+import sdm from "@/assets/certifications/sdm_certificate.pdf";
+import udmj from "@/assets/certifications/udmj_certificate.pdf";
+import ai from "@/assets/certifications/ai_certificate.pdf";
+import gqs from "@/assets/certifications/gqs_certificate.pdf";
 
 export const certifications = [
   {
@@ -33,25 +41,41 @@ export const certifications = [
   {
     name: "Programação de soluções computacionais",
     description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: psc,
   },
   {
     name: "Modelagem de software",
     description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: ms,
   },
   {
-    name: "Sistemas computacionais e segurança",
+    name: "Ambientes computacionais e segurança",
     description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: acs,
   },
   {
     name: "Ambientes computacionais e conectividade",
     description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: acc,
   },
   {
     name: "Sistemas distribuídos e mobile",
     description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: sdm,
   },
   {
     name: "Usabilidade, desenvolvimento web, mobile e jogos",
     description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: udmj,
+  },
+  {
+    name: "Inteligência artificial",
+    description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: ai,
+  },
+  {
+    name: "Gestão e qualidade de software",
+    description: "Unidade curricular concluida da grade de ciência da computação",
+    certificate: gqs,
   },
 ];

@@ -1,49 +1,36 @@
-import { Experience } from "@/components/Experience";
-import { motion, Variants } from "framer-motion";
-import { Project } from "@/components/Project";
-import { Contact } from "@/components/Contact";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { About } from "@/components/About";
-import { Home } from "@/components/Home";
-import { Fragment } from "react";
+import { Experience } from "@/components/section/experience";
+import { Project } from "@/components/section/project";
+import { Contact } from "@/components/section/contact";
+import { Particles } from "@/components/ui/particles";
+import { LightBeans } from "@/components/light-beans";
+import { About } from "@/components/section/about";
+import { Home } from "@/components/section/home";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { useTheme } from "@/hooks/use-theme";
+import { useEffect, useState } from "react";
 
 export const Portfolio = () => {
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#FFFFFF");
+
+  useEffect(() => {
+    setColor(theme === "dark" ? "#FFFFFF" : "#000000");
+  }, [theme]);
+
   return (
-    <Fragment>
+    <main className="relative flex flex-col items-center bg-background overflow-hidden">
+      <Particles className="absolute inset-0 pointer-events-none" quantity={200} ease={80} color={color} refresh />
+      <LightBeans />
       <Header />
-      <motion.section
-        variants={containerVariant}
-        className="max-w-6xl flex items-center flex-col gap-32 mt-16 px-2"
-      >
+      <section className="max-w-6xl flex items-center flex-col gap-32 mt-16 px-4 z-10">
         <Home />
         <About />
         <Project />
         <Experience />
         <Contact />
-      </motion.section>
+      </section>
       <Footer />
-    </Fragment>
+    </main>
   );
-};
-
-const containerVariant: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeInOut",
-      staggerChildren: 0.4,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeInOut",
-    },
-  },
 };

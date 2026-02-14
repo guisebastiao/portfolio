@@ -1,21 +1,22 @@
-import { ThemeProvider } from "@/context/ThemeContext";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { ThemeProvider } from "@/context/theme-context";
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { createRoot } from "react-dom/client";
-import { StrictMode } from "react";
 import { pdfjs } from "react-pdf";
+import { StrictMode } from "react";
 import { router } from "@/routes";
 import "@/global.css";
 
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
-      <Toaster theme="dark" />
+      <SmoothScroll>
+        <RouterProvider router={router} />
+        <Toaster theme="dark" />
+      </SmoothScroll>
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );
