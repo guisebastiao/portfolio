@@ -1,4 +1,4 @@
-import { LightRays } from "@/components/ui/light-rays";
+import { StripedPattern } from "@/components/ui/striped-pattern";
 import { motion, Variants } from "framer-motion";
 import { stacks } from "@/utils/stacks";
 
@@ -34,15 +34,15 @@ export const About = () => {
       </motion.p>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
         <motion.div
-          className="relative bg-foreground/5 border-2 border-foreground/10 rounded-lg p-5 flex flex-col justify-center gap-6"
+          className="relative bg-foreground/5 border-2 border-foreground/10 rounded-lg p-5 flex flex-col justify-start gap-6"
           variants={cardLeft}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          <LightRays />
+          <StripedPattern className="size-full opacity-15" />
           <h3 className="text-xl font-semibold">Minha Jornada</h3>
-          <p className="text-sm leading-relaxed text-foreground">
+          <p className="text-sm leading-relaxed text-foreground/90">
             Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de {handleGetAgeYears()} anos, atualmente
             moro em Tubarão-SC. A minha paixão por computação começou cedo, uma curiosidade que me impulsionou a querer
             ir além de ser um mero espectador e me tornar um criador. Essa motivação me guia em minha atual formação
@@ -50,32 +50,22 @@ export const About = () => {
             para transformar meu interesse em uma carreira. Hoje, aplico essa mesma dedicação para desenvolver
             aplicações completas, eficientes e intuitivas.
           </p>
-          <ul className="space-y-4 text-foreground text-[13px] leading-relaxed list-disc list-inside">
+          <ul className="space-y-4 text-foreground/85 text-[13px] leading-relaxed list-disc list-inside">
             <li>Residente em Tubarão-SC, aberto a oportunidades remotas;</li>
             <li>Aberto a um bate-papo sobre tecnologia, projetos e novas ideias;</li>
             <li>Focado em boas práticas de desenvolvimento e código limpo;</li>
             <li>Sempre aprendendo e explorando novas tecnologias em desenvolvimento;</li>
             <li>Desenvolvimento Web com TypeScript, Java e frameworks modernos;</li>
           </ul>
-          <div className="flex gap-4">
-            <div className="w-1/2 p-4 flex items-center justify-center flex-col bg-zinc-300 dark:bg-zinc-800 border rounded-lg">
-              <span className="text-blue-500 text-xl font-bold">15+</span>
-              <span className="text-xs text-foreground">Repositórios</span>
-            </div>
-            <div className="w-1/2 p-4 flex items-center justify-center flex-col bg-zinc-300 dark:bg-zinc-800 border rounded-lg">
-              <span className="text-blue-500 text-xl font-bold">4+</span>
-              <span className="text-xs text-foreground">Projetos Pessoais</span>
-            </div>
-          </div>
         </motion.div>
         <motion.div
-          className="relative bg-foreground/5 border-2 border-foreground/10  rounded-lg p-5 flex flex-col justify-center gap-6"
+          className="relative bg-foreground/5 border-2 border-foreground/10  rounded-lg p-5 flex flex-col justify-start gap-6"
           variants={cardRight}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          <LightRays />
+          <StripedPattern className="size-full opacity-15 scale-x-[-1]" />
           <h3 className="text-xl font-semibold">Stack Tecnológico</h3>
           <div className="space-y-5">
             {Object.entries(stacks).map(([category, items]) => (

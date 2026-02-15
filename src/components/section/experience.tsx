@@ -1,9 +1,8 @@
 import { BookmarkCheck, GraduationCap, MapPin, SquareArrowOutUpRight } from "lucide-react";
 import { certifications } from "@/utils/certifications";
+import { PdfDocument } from "@/components/pdf-document";
 import { graduations } from "@/utils/graduations";
-import { Spinner } from "@/components/ui/spinner";
 import { motion, Variants } from "framer-motion";
-import { Document, Page } from "react-pdf";
 import {
   Dialog,
   DialogContent,
@@ -104,18 +103,7 @@ export const Experience = () => {
                         <DialogTitle className="line-clamp-1">{certification.name}</DialogTitle>
                         <DialogDescription>{certification.description}</DialogDescription>
                       </DialogHeader>
-                      <Document
-                        file={certification.certificate}
-                        loading={
-                          <div className="w-full aspect-[1.35/1] flex items-center justify-center">
-                            <Spinner />
-                          </div>
-                        }
-                      >
-                        <div className="rounded-lg overflow-hidden">
-                          <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} />
-                        </div>
-                      </Document>
+                      <PdfDocument certification={certification} />
                     </DialogContent>
                   </Dialog>
                 )}

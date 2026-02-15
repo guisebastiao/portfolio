@@ -20,7 +20,7 @@ export const Portfolio = () => {
 
   return (
     <main className="relative flex flex-col items-center bg-background overflow-hidden">
-      <Particles className="absolute inset-0 pointer-events-none" quantity={200} ease={80} color={color} refresh />
+      <Particles className="absolute inset-0 pointer-events-none" quantity={250} ease={80} color={color} refresh />
       <LightBeans />
       <Header />
       <section className="max-w-6xl flex items-center flex-col gap-32 mt-16 px-4 z-10">

@@ -1,10 +1,10 @@
-import NotFoundImg from "@/assets/not-found.png";
+import { Particles } from "@/components/ui/particles";
 import { LightBeans } from "@/components/light-beans";
 import { Meteors } from "@/components/ui/meteors";
-import { Particles } from "@/components/ui/particles";
+import NotFoundImg from "@/assets/not-found.png";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/hooks/use-theme";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const NotFound = () => {
   const navigate = useNavigate();

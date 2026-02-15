@@ -79,3 +79,5 @@ export const certifications = [
     certificate: gqs,
   },
 ];
+
+export type CertificationType = (typeof certifications)[number];

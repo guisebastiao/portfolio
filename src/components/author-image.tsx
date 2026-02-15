@@ -1,6 +1,5 @@
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { PropsWithChildren } from "react";
-import { twMerge } from "tailwind-merge";
 
 export const AuthorImage = ({ children }: PropsWithChildren) => {
   return (

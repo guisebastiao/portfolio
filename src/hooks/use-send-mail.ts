@@ -2,8 +2,6 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { PUBLIC_KEY, SERVICE_KEY, TEMPLATE_KEY } from "@/utils/env";
-
 export interface SendEmailProps {
   name: string;
   email: string;
@@ -16,12 +14,14 @@ const useSendEmail = () => {
   const [success, setSuccess] = useState(false);
 
   const sendEmail = async ({ name, email, subject }: SendEmailProps) => {
+    if (loading) return;
+
     setLoading(true);
     setError(false);
     setSuccess(false);
 
     emailjs.init({
-      publicKey: PUBLIC_KEY,
+      publicKey: import.meta.env.VITE_PUBLIC_KEY,
       blockHeadless: true,
       limitRate: {
         id: "portfolio-contact",
@@ -31,14 +31,22 @@ const useSendEmail = () => {
 
     try {
       const templateParams = { name, email, subject };
-      await emailjs.send(SERVICE_KEY, TEMPLATE_KEY, templateParams, PUBLIC_KEY);
+
+      const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 10000));
+
+      const emailPromise = await emailjs.send(
+        import.meta.env.VITE_SERVICE_KEY,
+        import.meta.env.VITE_TEMPLATE_KEY,
+        templateParams,
+        import.meta.env.VITE_PUBLIC_KEY,
+      );
+
+      await Promise.race([emailPromise, timeoutPromise]);
 
       toast.success("Seu e-mail foi enviado com sucesso.");
       setSuccess(true);
     } catch (error) {
       setError(true);
-      setLoading(false);
-
       toast.error("Algo deu errado, tente novamente mais tarde.");
     } finally {
       setLoading(false);

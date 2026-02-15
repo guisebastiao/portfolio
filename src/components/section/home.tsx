@@ -1,10 +1,10 @@
 import curriculum from "@/assets/curriculum_guilhermesebastiao.pdf";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { TextAnimate } from "@/components/ui/text-animate";
 import { Download, Github, Linkedin } from "lucide-react";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { AuthorImage } from "@/components/author-image";
+import { LazyImage } from "@/components/lazy-image";
 import { Meteors } from "@/components/ui/meteors";
 import { motion, Variants } from "framer-motion";
 import { skills } from "@/utils/skills";
@@ -43,17 +43,15 @@ export const Home = () => {
         >
           <TypingAnimation words={skills} loop={true} startOnView={false} />
         </motion.div>
-        <motion.div
+        <motion.p
           className="text-muted-foreground leading-relaxed text-sm"
           variants={paragraphVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          <TextAnimate>
-            Desenvolvedor Web Fullstack e estudante de Ciência da Computação na Unisul, apaixonado por tecnológia.
-          </TextAnimate>
-        </motion.div>
+          Desenvolvedor Web Fullstack e estudante de Ciência da Computação na Unisul, apaixonado por tecnológia.
+        </motion.p>
         <motion.div
           className="inline-flex"
           variants={buttonDownloadVariant}
@@ -99,7 +97,7 @@ export const Home = () => {
         exit="exit"
       >
         <AuthorImage>
-          <img
+          <LazyImage
             src={photo}
             alt="Guilherme-Sebastião"
             className="absolute size-200 object-cover drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"

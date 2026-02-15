@@ -1,3 +1,4 @@
+import { LazyImage } from "@/components/lazy-image";
 import { motion, Variants } from "framer-motion";
 import { projects } from "@/utils/projects";
 import { Github } from "lucide-react";
@@ -35,9 +36,9 @@ export const Project = () => {
             whileInView="visible"
             exit="exit"
           >
-            <img
+            <LazyImage
               src={project.cover}
-              alt={`Imagem do projeto ${project.name}`}
+              alt={`project-image-${project.name}`}
               className="w-full aspect-square rounded-t-lg object-cover"
             />
             <div className="space-y-3 p-3">

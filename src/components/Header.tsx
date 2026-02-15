@@ -1,7 +1,8 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { useTheme } from "@/hooks/use-theme";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.jpg";
+import { useTheme } from "@/hooks/use-theme";
 import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -18,6 +19,7 @@ export const Header = () => {
 
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<"pt-br" | "en-us">("pt-br");
 
   useEffect(() => {
     const sections = document.querySelectorAll("[data-container]");
@@ -53,6 +55,10 @@ export const Header = () => {
     }
   };
 
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "pt-br" ? "en-us" : "pt-br"));
+  };
+
   return (
     <header className="fixed w-full h-16 bg-zinc-200 dark:bg-zinc-900 border-b z-50 flex justify-center">
       <div className="flex-1 max-w-7xl flex justify-between items-center px-4">
@@ -86,24 +92,41 @@ export const Header = () => {
               </button>
             ))}
           </nav>
-          <button
-            className="size-9 flex items-center justify-center relative cursor-pointer hover:border dark:hover:bg-zinc-800 rounded-lg transition"
-            onClick={toggleTheme}
-          >
+          <Button size="icon-sm" variant="ghost" onClick={toggleLanguage}>
+            <span
+              className={twMerge(
+                "absolute size-5 transition-opacity text-xs font-bold mt-1",
+                language === "pt-br" ? "opacity-100" : "opacity-0",
+              )}
+            >
+              BR
+            </span>
+            <span
+              className={twMerge(
+                "absolute size-5 transition-opacity text-xs font-bold mt-1",
+                language === "en-us" ? "opacity-100" : "opacity-0",
+              )}
+            >
+              EN
+            </span>
+          </Button>
+          <Button size="icon-sm" variant="ghost" onClick={toggleTheme}>
             <Sun
               className={twMerge("absolute size-5 transition-opacity", theme === "dark" ? "opacity-100" : "opacity-0")}
             />
             <Moon
               className={twMerge("absolute size-5 transition-opacity", theme === "light" ? "opacity-100" : "opacity-0")}
             />
-          </button>
-          <button
-            className="md:hidden size-9 flex items-center justify-center relative z-60"
+          </Button>
+          <Button
+            size="icon-sm"
+            variant="ghost"
             onClick={() => setMenuOpen((prev) => !prev)}
+            className="md:hidden z-100"
           >
-            <X className={twMerge("absolute", menuOpen ? "opacity-100" : "opacity-0")} />
-            <Menu className={twMerge("absolute", !menuOpen ? "opacity-100" : "opacity-0")} />
-          </button>
+            <X className={twMerge("absolute size-5", menuOpen ? "opacity-100" : "opacity-0")} />
+            <Menu className={twMerge("absolute size-5", !menuOpen ? "opacity-100" : "opacity-0")} />
+          </Button>
           <AnimatePresence>
             {menuOpen && (
               <motion.div
