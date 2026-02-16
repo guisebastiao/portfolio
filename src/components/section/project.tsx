@@ -1,9 +1,15 @@
 import { LazyImage } from "@/components/lazy-image";
 import { motion, Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { projects } from "@/utils/projects";
 import { Github } from "lucide-react";
+import { Language } from "@/i18n";
 
 export const Project = () => {
+  const { i18n, t } = useTranslation();
+
+  const lang = i18n.language as Language;
+
   return (
     <section className="w-full flex flex-col items-center gap-6 py-8" data-container="2">
       <div className="text-center space-y-4 max-w-2xl">
@@ -14,20 +20,20 @@ export const Project = () => {
           whileInView="visible"
           exit="exit"
         >
-          Meus Projetos
+          {t("sections.project.title")}
         </motion.h2>
         <motion.p
           className="max-w-2xl w-full text-muted-foreground"
-          variants={paragraphVariant}
+          variants={descriptionVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          Estes são alguns dos projetos que construí com muito esforço e dedicação.
+          {t("sections.project.description")}
         </motion.p>
       </div>
       <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">
-        {projects.map((project) => (
+        {projects[lang].map((project) => (
           <motion.article
             key={project.name}
             className="border bg-zinc-200 dark:bg-zinc-900 rounded-lg"
@@ -58,7 +64,7 @@ export const Project = () => {
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-blue-500 transition"
               >
                 <Github className="size-4" />
-                <span className="text-sm">Código</span>
+                <span className="text-sm"> {t("sections.project.card.redirect-code")}</span>
               </a>
             </div>
           </motion.article>
@@ -91,7 +97,7 @@ const titleVariant: Variants = {
   },
 };
 
-const paragraphVariant: Variants = {
+const descriptionVariant: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.9,

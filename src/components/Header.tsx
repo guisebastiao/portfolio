@@ -1,31 +1,47 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import profileImg from "@/assets/profile.jpg";
 import { useTheme } from "@/hooks/use-theme";
 import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
-const NAV_ITEMS = [
-  { label: "Início", id: 0 },
-  { label: "Sobre", id: 1 },
-  { label: "Projetos", id: 2 },
-  { label: "Experiência", id: 3 },
-  { label: "Contato", id: 4 },
-];
+const NAV_ITEMS = {
+  pt: [
+    { label: "Início", id: 0 },
+    { label: "Sobre", id: 1 },
+    { label: "Projetos", id: 2 },
+    { label: "Experiência", id: 3 },
+    { label: "Contato", id: 4 },
+  ],
+  en: [
+    { label: "Home", id: 0 },
+    { label: "About", id: 1 },
+    { label: "Projects", id: 2 },
+    { label: "Experience", id: 3 },
+    { label: "Contact", id: 4 },
+  ],
+};
+
+type Language = keyof typeof NAV_ITEMS;
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
+  const { i18n } = useTranslation();
+
+  const currentLanguage: Language =
+    i18n.language.split("-")[0] in NAV_ITEMS ? (i18n.language.split("-")[0] as Language) : "pt";
 
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"pt-br" | "en-us">("pt-br");
 
   useEffect(() => {
     const sections = document.querySelectorAll("[data-container]");
     const options = {
       root: null,
       threshold: 0,
+      rootMargin: "-50% 0% -50% 0%",
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -56,7 +72,7 @@ export const Header = () => {
   };
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "pt-br" ? "en-us" : "pt-br"));
+    i18n.changeLanguage(i18n.language === "pt" ? "en" : "pt");
   };
 
   return (
@@ -72,7 +88,7 @@ export const Header = () => {
         </div>
         <div className="flex gap-4 items-center">
           <nav className="hidden md:flex h-full items-center gap-4">
-            {NAV_ITEMS.map(({ label, id }) => (
+            {NAV_ITEMS[currentLanguage].map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => handleNavigate(id)}
@@ -95,19 +111,19 @@ export const Header = () => {
           <Button size="icon-sm" variant="ghost" onClick={toggleLanguage}>
             <span
               className={twMerge(
-                "absolute size-5 transition-opacity text-xs font-bold mt-1",
-                language === "pt-br" ? "opacity-100" : "opacity-0",
-              )}
-            >
-              BR
-            </span>
-            <span
-              className={twMerge(
-                "absolute size-5 transition-opacity text-xs font-bold mt-1",
-                language === "en-us" ? "opacity-100" : "opacity-0",
+                "absolute size-5 transition-opacity text-sm font-bold",
+                i18n.language === "pt" ? "opacity-100" : "opacity-0",
               )}
             >
               EN
+            </span>
+            <span
+              className={twMerge(
+                "absolute size-5 transition-opacity text-sm font-bold",
+                i18n.language === "en" ? "opacity-100" : "opacity-0",
+              )}
+            >
+              BR
             </span>
           </Button>
           <Button size="icon-sm" variant="ghost" onClick={toggleTheme}>
@@ -145,7 +161,7 @@ export const Header = () => {
                   exit="closed"
                   variants={navVariants}
                 >
-                  {NAV_ITEMS.map(({ label, id }) => (
+                  {NAV_ITEMS[currentLanguage].map(({ label, id }) => (
                     <motion.li key={id} variants={itemVariants} className="text-center">
                       <button
                         onClick={() => handleNavigate(id)}

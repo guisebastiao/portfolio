@@ -1,7 +1,7 @@
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { AuroraText } from "@/components/ui/aurora-text";
-import { contactSchema } from "@/schemas/contact-schema";
+import { useContactSchema } from "@/schemas/contact-schema";
 import { SendEmailProps } from "@/hooks/use-send-mail";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
@@ -11,16 +11,20 @@ import { motion, Variants } from "framer-motion";
 import useSendEmail from "@/hooks/use-send-mail";
 import { ScrollText, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { useTheme } from "@/hooks/use-theme";
 
 export const Contact = () => {
   const { theme } = useTheme();
   const { sendEmail, loading } = useSendEmail();
+  const { t } = useTranslation();
 
   const handleRedirectToLinkedIn = () => {
     window.open("https://www.linkedin.com/in/guilherme-sebastiao/", "_blank");
   };
+
+  const contactSchema = useContactSchema();
 
   const form = useForm({
     resolver: zodResolver(contactSchema),
@@ -53,16 +57,16 @@ export const Contact = () => {
           whileInView="visible"
           exit="exit"
         >
-          Vamos Conversar
+          {t("sections.contact.title")}
         </motion.h2>
         <motion.p
           className="text-muted-foreground my-3 text-center"
-          variants={paragraphVariant}
+          variants={descriptionVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          Tem uma ideia, projeto ou apenas quer trocar uma ideia? Me manda uma mensagem, vou adorar conversar com você.
+          {t("sections.contact.description")}
         </motion.p>
         <form onSubmit={form.handleSubmit(handleSendEmail)} className="space-y-4">
           <Controller
@@ -70,12 +74,12 @@ export const Contact = () => {
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="form-name">Nome</FieldLabel>
+                <FieldLabel htmlFor="form-name">{t("sections.contact.form.name.label")}</FieldLabel>
                 <Input
                   {...field}
                   id="form-name"
                   aria-invalid={fieldState.invalid}
-                  placeholder="Informe seu nome"
+                  placeholder={t("sections.contact.form.name.placeholder")}
                   autoComplete="off"
                 />
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -87,12 +91,12 @@ export const Contact = () => {
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="form-email">Email</FieldLabel>
+                <FieldLabel htmlFor="form-email">{t("sections.contact.form.email.label")}</FieldLabel>
                 <Input
                   {...field}
                   id="form-email"
                   aria-invalid={fieldState.invalid}
-                  placeholder="Informe seu e-mail"
+                  placeholder={t("sections.contact.form.email.placeholder")}
                   autoComplete="off"
                 />
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -104,12 +108,12 @@ export const Contact = () => {
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="form-email">Assunto</FieldLabel>
+                <FieldLabel htmlFor="form-subject">{t("sections.contact.form.subject.label")}</FieldLabel>
                 <Textarea
                   {...field}
-                  id="form-email"
+                  id="form-subject"
                   aria-invalid={fieldState.invalid}
-                  placeholder="Escreva sua mensagem..."
+                  placeholder={t("sections.contact.form.subject.placeholder")}
                   className="resize-none min-h-24"
                   autoComplete="off"
                 />
@@ -121,12 +125,12 @@ export const Contact = () => {
             {loading ? (
               <div className="size-full flex items-center justify-center gap-3.5">
                 <Spinner className="bg-white" />
-                <span>Enviando...</span>
+                <span>{t("sections.contact.form.submit.button-pending.name")}</span>
               </div>
             ) : (
               <div className="size-full flex items-center justify-center gap-2">
                 <Send className="size-4" />
-                <span>Enviar</span>
+                <span>{t("sections.contact.form.submit.button-normal.name")}</span>
               </div>
             )}
           </Button>
@@ -143,11 +147,11 @@ export const Contact = () => {
           className="text-5xl font-bold text-center py-2 leading-16"
           colors={theme === "dark" ? ["#a1a1a1", "#d4d4d4"] : ["#404040", "#737373"]}
         >
-          Afinal, vamos trabalhar juntos hoje?
+          {t("sections.contact.contratar.title")}
         </AuroraText>
         <ShimmerButton className="max-w-xl w-full h-9 gap-2 font-medium text-sm" onClick={handleRedirectToLinkedIn}>
           <ScrollText className="size-4" />
-          <span>Contratar</span>
+          <span>{t("sections.contact.contratar.button-name")}</span>
         </ShimmerButton>
       </motion.div>
     </section>
@@ -176,7 +180,7 @@ const titleVariant: Variants = {
   },
 };
 
-const paragraphVariant: Variants = {
+const descriptionVariant: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.9,

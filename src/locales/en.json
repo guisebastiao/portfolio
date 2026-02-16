@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "about": {
+      "title": "About Me",
+      "description": "I am a developer and technology enthusiast, constantly seeking personal evolution and quality in software development.",
+      "card-left": {
+        "title": "My Journey",
+        "description": "My name is Guilherme Fernandes Sebastião, a young {{age}} year old developer, currently living in Tubarão-SC. My passion for computing started early, a curiosity that drove me to want to go beyond being a mere spectator and become a creator. This motivation guides me in my current higher education, a step I consider fundamental to acquiring the discipline and knowledge base necessary to transform my interest into a career. Today, I apply this same dedication to developing complete, efficient, and intuitive applications.",
+        "lists-1": "Resident in Tubarão-SC, open to remote opportunities;",
+        "lists-2": "Open to chatting about technology, projects, and new ideas;",
+        "lists-3": "Focused on development best practices and clean code;",
+        "lists-4": "Always learning and exploring new technologies in development;",
+        "lists-5": "Web Development with TypeScript, Java, and modern frameworks;",
+        "wrapper": {
+          "repository": {
+            "title": "Repositories"
+          },
+          "project": {
+            "title": "Projects"
+          }
+        }
+      },
+      "card-right": {
+        "title": "Tech Stack"
+      }
+    },
+    "contact": {
+      "title": "Let's Talk",
+      "description": "Have an idea, project, or just want to swap thoughts? Send me a message, I'd love to talk to you.",
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Write your message..."
+        },
+        "submit": {
+          "button-normal": {
+            "name": "Send"
+          },
+          "button-pending": {
+            "name": "Sending..."
+          }
+        }
+      },
+      "contratar": {
+        "title": "So, shall we work together today?",
+        "button-name": "Hire Me"
+      }
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "description": "My journey in development and building my career.",
+      "card-top": {
+        "title": "Academic Background",
+        "location": "Location"
+      },
+      "card-bottom": {
+        "title": "Achievements & Certifications"
+      }
+    },
+    "hero": {
+      "title": "Hi, I am",
+      "description": "Fullstack Web Developer and Computer Science student at Unisul, passionate about technology.",
+      "button": {
+        "name": "Download CV"
+      }
+    },
+    "project": {
+      "title": "My Projects",
+      "description": "These are some of the projects I've built with great effort and dedication.",
+      "card": {
+        "redirect-code": "Code"
+      }
+    }
+  },
+  "pdf": {
+    "info": {
+      "page": "Page",
+      "of": "of"
+    }
+  },
+  "hooks": {
+    "send-mail": {
+      "toast": {
+        "success": "Your email was sent successfully.",
+        "error": "Something went wrong, please try again later."
+      }
+    }
+  },
+  "pages": {
+    "not-found": {
+      "title": "Page Not Found!",
+      "description": "Sorry, we couldn't find what you were looking for. How about going back to the home page?",
+      "button": {
+        "name": "Back to home"
+      }
+    }
+  },
+  "schemas": {
+    "contact": {
+      "name": {
+        "nonempty": "Name is required.",
+        "invalid-size": "Name cannot be longer than 100 characters."
+      },
+      "email": {
+        "nonempty": "Email is required.",
+        "valid": "Invalid email.",
+        "invalid-size": "Email cannot be longer than 300 characters."
+      },
+      "subject": {
+        "nonempty": "Subject is required.",
+        "invalid-size": "Subject cannot be longer than 150 characters."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "all rights reserved.",
+    "locale": "Tubarão - SC, Brazil."
+  }
+}

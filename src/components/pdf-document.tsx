@@ -1,17 +1,20 @@
-import { CertificationType } from "@/utils/certifications";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Certification } from "@/utils/certifications";
 import { Spinner } from "@/components/ui/spinner";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { Document, Page } from "react-pdf";
 import { useState } from "react";
 
 interface PdfDocumentProps {
-  certification: CertificationType;
+  certification: Certification;
 }
 
 export const PdfDocument = ({ certification }: PdfDocumentProps) => {
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
+
+  const { t } = useTranslation();
 
   return (
     <Document
@@ -37,7 +40,7 @@ export const PdfDocument = ({ certification }: PdfDocumentProps) => {
             <ChevronLeft />
           </Button>
           <span className="text-xs">
-            Página {pageNumber} de {numPages}
+            {t("pdf.info.page")} {pageNumber} {t("pdf.info.of")} {numPages}
           </span>
           <Button
             size="icon-sm"

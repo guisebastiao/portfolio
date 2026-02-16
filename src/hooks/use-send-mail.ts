@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -12,6 +13,8 @@ const useSendEmail = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const { t } = useTranslation();
 
   const sendEmail = async ({ name, email, subject }: SendEmailProps) => {
     if (loading) return;
@@ -43,11 +46,11 @@ const useSendEmail = () => {
 
       await Promise.race([emailPromise, timeoutPromise]);
 
-      toast.success("Seu e-mail foi enviado com sucesso.");
+      toast.success(t("hooks.send-mail.toast.success"));
       setSuccess(true);
     } catch (error) {
       setError(true);
-      toast.error("Algo deu errado, tente novamente mais tarde.");
+      toast.error(t("hooks.send-mail.toast.error"));
     } finally {
       setLoading(false);
     }

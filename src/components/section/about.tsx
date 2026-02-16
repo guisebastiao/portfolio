@@ -1,8 +1,11 @@
 import { StripedPattern } from "@/components/ui/striped-pattern";
 import { motion, Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { stacks } from "@/utils/stacks";
 
 export const About = () => {
+  const { t } = useTranslation();
+
   const handleGetAgeYears = (): number => {
     const birthDate = new Date("2005-12-10");
     const now = new Date();
@@ -20,17 +23,16 @@ export const About = () => {
         whileInView="visible"
         exit="exit"
       >
-        Sobre Mim
+        {t("sections.about.title")}
       </motion.h2>
       <motion.p
         className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl text-center"
-        variants={paragraphVariant}
+        variants={descriptionVariant}
         initial="hidden"
         whileInView="visible"
         exit="exit"
       >
-        Sou desenvolvedor e entusiasta de tecnologia, em constante busca por evolução pessoal e pela qualidade no
-        desenvolvimento de software
+        {t("sections.about.description")}
       </motion.p>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
         <motion.div
@@ -40,33 +42,39 @@ export const About = () => {
           whileInView="visible"
           exit="exit"
         >
-          <StripedPattern className="size-full opacity-15" />
-          <h3 className="text-xl font-semibold">Minha Jornada</h3>
-          <p className="text-sm leading-relaxed text-foreground/90">
-            Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de {handleGetAgeYears()} anos, atualmente
-            moro em Tubarão-SC. A minha paixão por computação começou cedo, uma curiosidade que me impulsionou a querer
-            ir além de ser um mero espectador e me tornar um criador. Essa motivação me guia em minha atual formação
-            superior, um passo que considero fundamental para adquirir a disciplina e a base de conhecimento necessárias
-            para transformar meu interesse em uma carreira. Hoje, aplico essa mesma dedicação para desenvolver
-            aplicações completas, eficientes e intuitivas.
+          <h3 className="text-xl font-semibold text-center">{t("sections.about.card-left.title")}</h3>
+          <p className="text-sm leading-relaxed text-foreground/85 text-justify indent-10 font-light">
+            {t("sections.about.card-left.description", {
+              age: handleGetAgeYears(),
+            })}
           </p>
-          <ul className="space-y-4 text-foreground/85 text-[13px] leading-relaxed list-disc list-inside">
-            <li>Residente em Tubarão-SC, aberto a oportunidades remotas;</li>
-            <li>Aberto a um bate-papo sobre tecnologia, projetos e novas ideias;</li>
-            <li>Focado em boas práticas de desenvolvimento e código limpo;</li>
-            <li>Sempre aprendendo e explorando novas tecnologias em desenvolvimento;</li>
-            <li>Desenvolvimento Web com TypeScript, Java e frameworks modernos;</li>
+          <ul className="space-y-4 text-foreground/80 text-[13px] leading-relaxed list-disc list-inside">
+            <li>{t("sections.about.card-left.lists-1")}</li>
+            <li>{t("sections.about.card-left.lists-2")}</li>
+            <li>{t("sections.about.card-left.lists-3")}</li>
+            <li>{t("sections.about.card-left.lists-4")}</li>
+            <li>{t("sections.about.card-left.lists-5")}</li>
           </ul>
+          <div className="flex gap-3 flex-wrap">
+            <div className="min-w-36 flex-1 h-24 border-2 rounded-lg border-foreground/10 bg-foreground/5 flex justify-center items-center flex-col gap-1">
+              <h4 className="font-bold text-xl text-blue-600">15+</h4>
+              <span className="text-sm">{t("sections.about.card-left.wrapper.repository.title")}</span>
+            </div>
+            <div className="min-w-36 flex-1 h-24 border-2 rounded-lg border-foreground/10 bg-foreground/5 flex justify-center items-center flex-col gap-1">
+              <h4 className="font-bold text-xl text-blue-600">4+</h4>
+              <span className="text-sm">{t("sections.about.card-left.wrapper.project.title")}</span>
+            </div>
+          </div>
+          <StripedPattern className="size-full opacity-15" />
         </motion.div>
         <motion.div
-          className="relative bg-foreground/5 border-2 border-foreground/10  rounded-lg p-5 flex flex-col justify-start gap-6"
+          className="relative bg-foreground/5 border-2 border-foreground/10 rounded-lg p-5 flex flex-col justify-start gap-6"
           variants={cardRight}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          <StripedPattern className="size-full opacity-15 scale-x-[-1]" />
-          <h3 className="text-xl font-semibold">Stack Tecnológico</h3>
+          <h3 className="text-xl font-semibold text-center">{t("sections.about.card-right.title")}</h3>
           <div className="space-y-5">
             {Object.entries(stacks).map(([category, items]) => (
               <div key={category} className="space-y-2">
@@ -76,15 +84,19 @@ export const About = () => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {items.map(({ name, icon: Icon }) => (
-                    <div key={name} className="flex items-center gap-2 px-2 py-1.5 rounded-md border">
-                      <Icon className="size-3.5 text-foreground/80" />
-                      <span className="text-xs text-foreground/80">{name}</span>
+                    <div
+                      key={name}
+                      className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-foreground/25 bg-foreground/5"
+                    >
+                      <Icon className="size-3.5 text-foreground/85" />
+                      <span className="text-xs text-foreground/85">{name}</span>
                     </div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
+          <StripedPattern className="size-full opacity-15 scale-x-[-1]" />
         </motion.div>
       </div>
     </section>
@@ -114,7 +126,7 @@ const titleVariant: Variants = {
   },
 };
 
-const paragraphVariant: Variants = {
+const descriptionVariant: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.9,

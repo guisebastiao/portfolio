@@ -4,7 +4,7 @@ import { Contact } from "@/components/section/contact";
 import { Particles } from "@/components/ui/particles";
 import { LightBeans } from "@/components/light-beans";
 import { About } from "@/components/section/about";
-import { Home } from "@/components/section/home";
+import { Hero } from "@/components/section/hero.tsx";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { useTheme } from "@/hooks/use-theme";
@@ -24,7 +24,7 @@ export const Portfolio = () => {
       <LightBeans />
       <Header />
       <section className="max-w-6xl flex items-center flex-col gap-32 mt-16 px-4 z-10">
-        <Home />
+        <Hero />
         <About />
         <Project />
         <Experience />

@@ -7,10 +7,13 @@ import { AuthorImage } from "@/components/author-image";
 import { LazyImage } from "@/components/lazy-image";
 import { Meteors } from "@/components/ui/meteors";
 import { motion, Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { skills } from "@/utils/skills";
 import photo from "@/assets/photo.png";
 
-export const Home = () => {
+export const Hero = () => {
+  const { t } = useTranslation();
+
   const handleDownloadCurriculum = () => {
     const link = document.createElement("a");
     link.href = curriculum;
@@ -32,7 +35,7 @@ export const Home = () => {
           whileInView="visible"
           exit="exit"
         >
-          <span>Olá, eu sou</span> <AuroraText>Guilherme</AuroraText>
+          <span>{t("sections.hero.title")}</span> <AuroraText>Guilherme</AuroraText>
         </motion.div>
         <motion.div
           className="text-muted-foreground leading-relaxed text-xl"
@@ -45,12 +48,12 @@ export const Home = () => {
         </motion.div>
         <motion.p
           className="text-muted-foreground leading-relaxed text-sm"
-          variants={paragraphVariant}
+          variants={descriptionVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          Desenvolvedor Web Fullstack e estudante de Ciência da Computação na Unisul, apaixonado por tecnológia.
+          {t("sections.hero.description")}
         </motion.p>
         <motion.div
           className="inline-flex"
@@ -61,7 +64,7 @@ export const Home = () => {
         >
           <ShimmerButton className="h-10 gap-2 text-sm font-medium" onClick={handleDownloadCurriculum}>
             <Download className="size-4.5" />
-            Baixar Currículo
+            {t("sections.hero.button.name")}
           </ShimmerButton>
         </motion.div>
         <motion.div
@@ -160,7 +163,7 @@ const typedTextVariant: Variants = {
   },
 };
 
-const paragraphVariant: Variants = {
+const descriptionVariant: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.9,

@@ -1,58 +1,128 @@
-export const projects = [
-  {
-    name: "Ecommerce",
-    description: "Frontend de um e-commerce com pagamentos fictícios, autenticação e muito mais.",
-    cover: "https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png",
-    link: "https://github.com/guisebastiao/ecommerce",
-    stacks: ["TypeScript", "React", "Tailwind", "ChadCn"],
-  },
-  {
-    name: "Ecommerce API",
-    description: "Uma API RESTful desenvolvida com Spring Boot para gerenciar um sistema de e-commerce.",
-    cover: "https://cdn.dribbble.com/userupload/21058411/file/original-12774ab7f98694b8e6425c6684f71e2e.png",
-    link: "https://github.com/guisebastiao/ecommerce-api",
-    stacks: ["Java", "SpringBoot", "Auth0", "Docker"],
-  },
-  {
-    name: "ToDoList",
-    description: "Este projeto é uma aplicação de lista de tarefas.",
-    cover: "https://cdn.dribbble.com/userupload/17819625/file/original-6d52793f1189a0702545d9d0066a28a9.png",
-    link: "https://github.com/guisebastiao/To-Do",
-    stacks: ["React", "Tailwind", "Fastify", "Prisma", "Postgres"],
-  },
-  {
-    name: "Jogo da Velha",
-    description: "O famoso e clássico jogo da velha.",
-    cover: "https://cdn.dribbble.com/userupload/34526977/file/original-1302ef3f7bac893e82547b1cad4cdfbb.png",
-    link: "https://github.com/guisebastiao/jogoDaVelha",
-    stacks: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    name: "Flappy Bird",
-    description: "Este projeto contém o clone do famoso jogo Flappy Bird.",
-    cover: "https://cdn.dribbble.com/userupload/20949862/file/original-90e41eb9569b407c4887b2eed64f6f06.png",
-    link: "https://github.com/guisebastiao/flappyBird",
-    stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
-  },
-  {
-    name: "Termo",
-    description: "Este projeto contém um clone do popular jogo de palavras Termo.",
-    cover: "https://criticalhits.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/01/wordle.0-768x512.jpg.webp",
-    link: "https://github.com/guisebastiao/termo",
-    stacks: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    name: "Jogo da Cobrinha",
-    description: "Esse projeto contém o jogo da cobrinha famoso Snake Game.",
-    cover: "https://cdn.dribbble.com/userupload/21564247/file/original-1298ff7d76f68556985bb77f7fbf04a0.jpg",
-    link: "https://github.com/guisebastiao/jogoDaCobrinha",
-    stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
-  },
-  {
-    name: "Jogo da Memória",
-    description: "Projeto do clássico jogo da memória.",
-    cover: "https://cdn.dribbble.com/userupload/19475791/file/original-767411144fd2721210a82f6863c33a0e.png",
-    link: "https://github.com/guisebastiao/jogoDaCobrinha",
-    stacks: ["HTML", "CSS", "JavaScript"],
-  },
-];
+import { Language } from "@/i18n";
+
+export type Project = {
+  name: string;
+  description: string;
+  cover: string;
+  link: string;
+  stacks: string[];
+}
+
+export const projects: Record<Language, Project[]> = {
+  pt: [
+    {
+      name: "Ecommerce",
+      description: "Frontend de um e-commerce com pagamentos fictícios, autenticação e muito mais.",
+      cover: "https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png",
+      link: "https://github.com/guisebastiao/ecommerce",
+      stacks: ["TypeScript", "React", "Tailwind", "ChadCn"],
+    },
+    {
+      name: "Ecommerce API",
+      description: "Uma API RESTful desenvolvida com Spring Boot para gerenciar um sistema de e-commerce.",
+      cover: "https://cdn.dribbble.com/userupload/21058411/file/original-12774ab7f98694b8e6425c6684f71e2e.png",
+      link: "https://github.com/guisebastiao/ecommerce-api",
+      stacks: ["Java", "SpringBoot", "Auth0", "Docker"],
+    },
+    {
+      name: "ToDoList",
+      description: "Este projeto é uma aplicação de lista de tarefas.",
+      cover: "https://cdn.dribbble.com/userupload/17819625/file/original-6d52793f1189a0702545d9d0066a28a9.png",
+      link: "https://github.com/guisebastiao/To-Do",
+      stacks: ["React", "Tailwind", "Fastify", "Prisma", "Postgres"],
+    },
+    {
+      name: "Jogo da Velha",
+      description: "O famoso e clássico jogo da velha.",
+      cover: "https://cdn.dribbble.com/userupload/34526977/file/original-1302ef3f7bac893e82547b1cad4cdfbb.png",
+      link: "https://github.com/guisebastiao/jogoDaVelha",
+      stacks: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      name: "Flappy Bird",
+      description: "Este projeto contém o clone do famoso jogo Flappy Bird.",
+      cover: "https://cdn.dribbble.com/userupload/20949862/file/original-90e41eb9569b407c4887b2eed64f6f06.png",
+      link: "https://github.com/guisebastiao/flappyBird",
+      stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
+    },
+    {
+      name: "Termo",
+      description: "Este projeto contém um clone do popular jogo de palavras Termo.",
+      cover: "https://criticalhits.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/01/wordle.0-768x512.jpg.webp",
+      link: "https://github.com/guisebastiao/termo",
+      stacks: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      name: "Jogo da Cobrinha",
+      description: "Esse projeto contém o jogo da cobrinha famoso Snake Game.",
+      cover: "https://cdn.dribbble.com/userupload/21564247/file/original-1298ff7d76f68556985bb77f7fbf04a0.jpg",
+      link: "https://github.com/guisebastiao/jogoDaCobrinha",
+      stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
+    },
+    {
+      name: "Jogo da Memória",
+      description: "Projeto do clássico jogo da memória.",
+      cover: "https://cdn.dribbble.com/userupload/19475791/file/original-767411144fd2721210a82f6863c33a0e.png",
+      link: "https://github.com/guisebastiao/jogoDaCobrinha",
+      stacks: ["HTML", "CSS", "JavaScript"],
+    },
+  ],
+  en: [
+    {
+      name: "E-commerce Frontend",
+      description: "Frontend application for an e-commerce platform featuring mock payments, authentication, and more.",
+      cover: "https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png",
+      link: "https://github.com/guisebastiao/ecommerce",
+      stacks: ["TypeScript", "React", "Tailwind", "ChadCn"],
+    },
+    {
+      name: "E-commerce API",
+      description: "A RESTful API built with Spring Boot to manage an e-commerce system.",
+      cover: "https://cdn.dribbble.com/userupload/21058411/file/original-12774ab7f98694b8e6425c6684f71e2e.png",
+      link: "https://github.com/guisebastiao/ecommerce-api",
+      stacks: ["Java", "SpringBoot", "Auth0", "Docker"],
+    },
+    {
+      name: "To-Do List",
+      description: "A task management application.",
+      cover: "https://cdn.dribbble.com/userupload/17819625/file/original-6d52793f1189a0702545d9d0066a28a9.png",
+      link: "https://github.com/guisebastiao/To-Do",
+      stacks: ["React", "Tailwind", "Fastify", "Prisma", "Postgres"],
+    },
+    {
+      name: "Tic-Tac-Toe",
+      description: "A classic Tic-Tac-Toe game implementation.",
+      cover: "https://cdn.dribbble.com/userupload/34526977/file/original-1302ef3f7bac893e82547b1cad4cdfbb.png",
+      link: "https://github.com/guisebastiao/jogoDaVelha",
+      stacks: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      name: "Flappy Bird Clone",
+      description: "A clone of the popular game Flappy Bird.",
+      cover: "https://cdn.dribbble.com/userupload/20949862/file/original-90e41eb9569b407c4887b2eed64f6f06.png",
+      link: "https://github.com/guisebastiao/flappyBird",
+      stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
+    },
+    {
+      name: "Wordle Clone",
+      description: "A clone of the popular word game Wordle.",
+      cover: "https://criticalhits.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/01/wordle.0-768x512.jpg.webp",
+      link: "https://github.com/guisebastiao/termo",
+      stacks: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      name: "Snake Game",
+      description: "An implementation of the classic Snake game.",
+      cover: "https://cdn.dribbble.com/userupload/21564247/file/original-1298ff7d76f68556985bb77f7fbf04a0.jpg",
+      link: "https://github.com/guisebastiao/jogoDaCobrinha",
+      stacks: ["HTML", "CSS", "JavaScript", "Canvas"],
+    },
+    {
+      name: "Memory Game",
+      description: "An implementation of the classic memory matching game.",
+      cover: "https://cdn.dribbble.com/userupload/19475791/file/original-767411144fd2721210a82f6863c33a0e.png",
+      link: "https://github.com/guisebastiao/jogoDaCobrinha",
+      stacks: ["HTML", "CSS", "JavaScript"],
+    },
+  ],
+};

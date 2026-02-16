@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "about": {
+      "title": "Sobre Mim",
+      "description": "Sou desenvolvedor e entusiasta de tecnologia, em constante busca por evolução pessoal e pela qualidade no desenvolvimento de software.",
+      "card-left": {
+        "title": "Minha Jornada",
+        "description": "Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de {{age}} anos, atualmente moro em Tubarão-SC. A minha paixão por computação começou cedo, uma curiosidade que me impulsionou a querer ir além de ser um mero espectador e me tornar um criador. Essa motivação me guia em minha atual formação superior, um passo que considero fundamental para adquirir a disciplina e a base de conhecimento necessárias para transformar meu interesse em uma carreira. Hoje, aplico essa mesma dedicação para desenvolver aplicações completas, eficientes e intuitivas.",
+        "lists-1": "Residente em Tubarão-SC, aberto a oportunidades remotas;",
+        "lists-2": "Aberto a um bate-papo sobre tecnologia, projetos e novas ideias;",
+        "lists-3": "Focado em boas práticas de desenvolvimento e código limpo;",
+        "lists-4": "Sempre aprendendo e explorando novas tecnologias em desenvolvimento;",
+        "lists-5": "Desenvolvimento Web com TypeScript, Java e frameworks modernos;",
+        "wrapper": {
+          "repository": {
+            "title": "Repositórios"
+          },
+          "project": {
+            "title": "Projetos"
+          }
+        }
+      },
+      "card-right": {
+        "title": "Stack Tecnológico"
+      }
+    },
+    "contact": {
+      "title": "Vamos Conversar",
+      "description": "Tem uma ideia, projeto ou apenas quer trocar uma ideia? Me manda uma mensagem, vou adorar conversar com você.",
+      "form": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Informe seu nome"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Informe seu e-mail"
+        },
+        "subject": {
+          "label": "Assunto",
+          "placeholder": "Escreva sua mensagem..."
+        },
+        "submit": {
+          "button-normal": {
+            "name": "Enviar"
+          },
+          "button-pending": {
+            "name": "Enviando..."
+          }
+        }
+      },
+      "contratar": {
+        "title": "Afinal, vamos trabalhar juntos hoje?",
+        "button-name": "Contratar"
+      }
+    },
+    "experience": {
+      "title": "Experiência Profissional",
+      "description": "Minha caminhada no desenvolvimento e na construção da minha carreira.",
+      "card-top": {
+        "title": "Formação Acadêmica",
+        "location": "Localização"
+      },
+      "card-bottom": {
+        "title": "Conquistas & Certificações"
+      }
+    },
+    "hero": {
+      "title": "Olá, eu sou",
+      "description": "Desenvolvedor Web Fullstack e estudante de Ciência da Computação na Unisul, apaixonado por tecnológia.",
+      "button": {
+        "name": "Baixar Currículo"
+      }
+    },
+    "project": {
+      "title": "Meus Projetos",
+      "description": "Estes são alguns dos projetos que construí com muito esforço e dedicação.",
+      "card": {
+        "redirect-code": "Código"
+      }
+    }
+  },
+  "pdf": {
+    "info": {
+      "page": "Página",
+      "of": "de"
+    }
+  },
+  "hooks": {
+    "send-mail": {
+      "toast": {
+        "success": "Seu e-mail foi enviado com sucesso.",
+        "error": "Algo deu errado, tente novamente mais tarde."
+      }
+    }
+  },
+  "pages": {
+    "not-found": {
+      "title": "Página Não Encontrada!",
+      "description": "Desculpe, não conseguimos encontrar o que você estava procurando. Que tal voltar para a página inicial?",
+      "button": {
+        "name": "Voltar para o início"
+      }
+    }
+  },
+  "schemas": {
+    "contact": {
+      "name": {
+        "nonempty": "O nome é obrigatório.",
+        "invalid-size": "O nome não pode ser maior do que 100 caracteres."
+      },
+      "email": {
+        "nonempty": "O e-mail é obrigatório.",
+        "valid": "E-mail inválido.",
+        "invalid-size": "O e-mail não pode ser maior do que 300 caracteres"
+      },
+      "subject": {
+        "nonempty": "O assunto é obrigatório.",
+        "invalid-size": "O assunto não pode ser maior do que 150 caracteres."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "todos os direitos reservados.",
+    "locale": "Tubarão - SC, Brasil."
+  }
+}
