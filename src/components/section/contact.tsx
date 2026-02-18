@@ -7,13 +7,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import { Spinner } from "@/components/ui/spinner";
-import { motion, Variants } from "framer-motion";
 import useSendEmail from "@/hooks/use-send-mail";
 import { ScrollText, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { useTheme } from "@/hooks/use-theme";
+import { m, Variants } from "framer-motion";
 
 export const Contact = () => {
   const { theme } = useTheme();
@@ -43,31 +43,31 @@ export const Contact = () => {
 
   return (
     <section className="w-full flex items-center justify-center flex-col gap-6 py-8" data-container="4">
-      <motion.div
-        className="max-w-xl w-full flex flex-col gap-1.5"
+      <m.div
+        className="transform-gpu will-change-transform max-w-xl w-full flex flex-col gap-1.5"
         variants={formVariant}
         initial="hidden"
         whileInView="visible"
         exit="exit"
       >
-        <motion.h2
-          className="text-3xl font-bold text-center"
+        <m.h2
+          className="transform-gpu will-change-transform text-3xl font-bold text-center"
           variants={titleVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           {t("sections.contact.title")}
-        </motion.h2>
-        <motion.p
-          className="text-muted-foreground my-3 text-center"
+        </m.h2>
+        <m.p
+          className="transform-gpu will-change-transform text-muted-foreground my-3 text-center"
           variants={descriptionVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           {t("sections.contact.description")}
-        </motion.p>
+        </m.p>
         <form onSubmit={form.handleSubmit(handleSendEmail)} className="space-y-4">
           <Controller
             name="name"
@@ -135,9 +135,9 @@ export const Contact = () => {
             )}
           </Button>
         </form>
-      </motion.div>
-      <motion.div
-        className="max-w-xl full space-y-16 py-20"
+      </m.div>
+      <m.div
+        className="transform-gpu will-change-transform max-w-xl full space-y-16 py-20"
         variants={boxVariant}
         initial="hidden"
         whileInView="visible"
@@ -153,7 +153,7 @@ export const Contact = () => {
           <ScrollText className="size-4" />
           <span>{t("sections.contact.contratar.button-name")}</span>
         </ShimmerButton>
-      </motion.div>
+      </m.div>
     </section>
   );
 };
@@ -166,16 +166,16 @@ const titleVariant: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -189,16 +189,16 @@ const descriptionVariant: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -214,8 +214,8 @@ const formVariant: Variants = {
     scale: 1,
     x: 0,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
@@ -223,8 +223,8 @@ const formVariant: Variants = {
     scale: 0.9,
     x: 100,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -240,8 +240,8 @@ const boxVariant: Variants = {
     scale: 1,
     x: 0,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
@@ -249,8 +249,8 @@ const boxVariant: Variants = {
     scale: 0.9,
     x: -100,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };

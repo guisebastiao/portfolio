@@ -1,4 +1,5 @@
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { ThemeProvider } from "@/context/theme-context";
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
@@ -14,10 +15,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <SmoothScroll>
-        <RouterProvider router={router} />
-        <Toaster />
-      </SmoothScroll>
+      <LazyMotion features={domAnimation}>
+        <SmoothScroll>
+          <RouterProvider router={router} />
+          <Toaster />
+        </SmoothScroll>
+      </LazyMotion>
     </ThemeProvider>
   </StrictMode>,
 );

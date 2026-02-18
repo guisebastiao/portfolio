@@ -1,27 +1,16 @@
-import { Particles } from "@/components/ui/particles";
 import { LightBeans } from "@/components/light-beans";
 import { Meteors } from "@/components/ui/meteors";
 import NotFoundImg from "@/assets/not-found.png";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@/hooks/use-theme";
-import { useEffect, useState } from "react";
 
 export const NotFound = () => {
   const navigate = useNavigate();
 
   const { t } = useTranslation();
 
-  const { theme } = useTheme();
-  const [color, setColor] = useState("#FFFFFF");
-
-  useEffect(() => {
-    setColor(theme === "dark" ? "#FFFFFF" : "#000000");
-  }, [theme]);
-
   return (
     <main className="relative flex flex-col items-center bg-background overflow-hidden">
-      <Particles className="absolute inset-0 pointer-events-none" quantity={200} ease={80} color={color} refresh />
       <Meteors />
       <LightBeans />
       <div className="max-w-xl min-h-screen flex flex-col justify-center items-center gap-12 px-8 py-3.5">

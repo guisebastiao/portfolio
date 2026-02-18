@@ -1,6 +1,6 @@
 import { LazyImage } from "@/components/lazy-image";
-import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { m, Variants } from "framer-motion";
 import { projects } from "@/utils/projects";
 import { Github } from "lucide-react";
 import { Language } from "@/i18n";
@@ -13,16 +13,10 @@ export const Project = () => {
   return (
     <section className="w-full flex flex-col items-center gap-6 py-8" data-container="2">
       <div className="text-center space-y-4 max-w-2xl">
-        <motion.h2
-          className="text-3xl font-bold"
-          variants={titleVariant}
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-        >
+        <m.h2 className="text-3xl font-bold" variants={titleVariant} initial="hidden" whileInView="visible" exit="exit">
           {t("sections.project.title")}
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           className="max-w-2xl w-full text-muted-foreground"
           variants={descriptionVariant}
           initial="hidden"
@@ -30,11 +24,11 @@ export const Project = () => {
           exit="exit"
         >
           {t("sections.project.description")}
-        </motion.p>
+        </m.p>
       </div>
       <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">
         {projects[lang].map((project) => (
-          <motion.article
+          <m.article
             key={project.name}
             className="border bg-zinc-200 dark:bg-zinc-900 rounded-lg"
             variants={projectCardVariant}
@@ -67,7 +61,7 @@ export const Project = () => {
                 <span className="text-sm"> {t("sections.project.card.redirect-code")}</span>
               </a>
             </div>
-          </motion.article>
+          </m.article>
         ))}
       </div>
     </section>
@@ -83,16 +77,16 @@ const titleVariant: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.4,
+      ease: "easeIn",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -106,16 +100,16 @@ const descriptionVariant: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.4,
+      ease: "easeIn",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -130,16 +124,16 @@ const projectCardVariant: Variants = {
     scale: 1,
 
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.4,
+      ease: "easeOut",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
 };

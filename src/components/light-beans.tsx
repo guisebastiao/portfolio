@@ -1,8 +1,33 @@
-import { motion } from "framer-motion";
 import { useMemo } from "react";
 
-const colors = ["bg-blue-500/30", "bg-violet-500/30", "bg-cyan-500/30", "bg-pink-500/30", "bg-emerald-500/30"];
-const blobsSize = 25;
+type PerformanceTier = "high" | "medium" | "low";
+
+const COLORS = [
+  "rgba(59, 130, 246, 0.18)",
+  "rgba(139, 92, 246, 0.18)",
+  "rgba(6, 182, 212, 0.18)",
+  "rgba(236, 72, 153, 0.18)",
+  "rgba(16, 185, 129, 0.18)",
+];
+
+const BLOB_CLASSES = ["animate-blob-a", "animate-blob-b", "animate-blob-c", "animate-blob-d"] as const;
+const TIER_COUNT: Record<string, number> = { high: 40, medium: 20, low: 10 };
+
+export const usePerformance = (): PerformanceTier => {
+  return useMemo(() => {
+    if (typeof window === "undefined") return "medium";
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return "low";
+
+    const cores = navigator.hardwareConcurrency ?? 4;
+    const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4;
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile || cores <= 2 || memory <= 2) return "low";
+    if (cores <= 4 || memory <= 4) return "medium";
+    return "high";
+  }, []);
+};
 
 const seededRandom = (seed: number) => {
   const x = Math.sin(seed * 12.9898) * 43758.5453;
@@ -10,63 +35,47 @@ const seededRandom = (seed: number) => {
 };
 
 export const LightBeans = () => {
+  const tier = usePerformance();
+  const count = TIER_COUNT[tier];
+
   const blobs = useMemo(() => {
-    return Array.from({ length: blobsSize }, (_, i) => {
-      const baseSeed = i * 1.618;
-      const size = Math.floor(seededRandom(baseSeed) * 120) + 100;
-      const color = colors[Math.floor(seededRandom(baseSeed * 2) * colors.length)];
-
-      const verticalZone = i % 3;
-      const top = `${seededRandom(baseSeed * 3) * 33 + verticalZone * 33}%`;
-      const left = `${seededRandom(baseSeed * 4) * 100}%`;
-
-      const duration = Math.floor(seededRandom(baseSeed * 5) * 15) + 20;
-      const blur = seededRandom(baseSeed * 6) > 0.5 ? "blur-2xl" : "blur-3xl";
-
-      const x1 = seededRandom(baseSeed * 7) * 40 - 20;
-      const x2 = seededRandom(baseSeed * 8) * 40 - 20;
-      const y1 = seededRandom(baseSeed * 9) * 30 - 15;
-      const y2 = seededRandom(baseSeed * 10) * 30 - 15;
+    return Array.from({ length: count }, (_, i) => {
+      const s = i * 1.618;
+      const duration = Math.floor(seededRandom(s * 5) * 15) + 18;
+      const delay = -Math.floor(seededRandom(s * 6) * duration);
 
       return {
         id: i,
-        size,
-        color,
-        top,
-        left,
-        duration,
-        blur,
-        x: [0, x1, x2, 0],
-        y: [0, y1, y2, 0],
+        size: Math.floor(seededRandom(s) * 140) + 80,
+        color: COLORS[Math.floor(seededRandom(s * 2) * COLORS.length)],
+        top: `${seededRandom(s * 3) * 85}%`,
+        left: `${seededRandom(s * 4) * 85}%`,
+        duration: `${duration}s`,
+        delay: `${delay}s`,
+        blurClass: seededRandom(s * 7) > 0.5 ? "blur-3xl" : "blur-2xl",
+        animClass: BLOB_CLASSES[i % BLOB_CLASSES.length],
       };
     });
-  }, []);
+  }, [count]);
+
+  if (count === 0) return null;
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-      {blobs.map((blob) => (
-        <motion.div
-          key={blob.id}
-          className={`absolute rounded-full ${blob.color} ${blob.blur}`}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      {blobs.map((b) => (
+        <div
+          key={b.id}
+          className={`absolute rounded-full ${b.blurClass} ${b.animClass}`}
           style={{
-            width: blob.size,
-            height: blob.size,
-            top: blob.top,
-            left: blob.left,
+            width: b.size,
+            height: b.size,
+            top: b.top,
+            left: b.left,
+            backgroundColor: b.color,
+            animationDuration: b.duration,
+            animationDelay: b.delay,
             willChange: "transform",
-            transform: "translateZ(0)",
-          }}
-          animate={{
-            x: blob.x,
-            y: blob.y,
-            scale: [1, 1.05, 0.95, 1],
-            opacity: [0.3, 0.6, 0.4, 0.3],
-          }}
-          transition={{
-            duration: blob.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-            repeatType: "loop",
+            contain: "layout style paint",
           }}
         />
       ))}

@@ -3,8 +3,8 @@ import { StripedPattern } from "@/components/ui/striped-pattern";
 import { certifications } from "@/utils/certifications";
 import { PdfDocument } from "@/components/pdf-document";
 import { graduations } from "@/utils/graduations";
-import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { m, Variants } from "framer-motion";
 import { Language } from "@/i18n";
 import {
   Dialog,
@@ -23,39 +23,39 @@ export const Experience = () => {
   return (
     <section className="w-full flex flex-col items-center gap-6 py-8" data-container="3">
       <div className="text-center max-w-2xl space-y-4">
-        <motion.h2
-          className="text-3xl font-bold"
+        <m.h2
+          className="transform-gpu will-change-transform text-3xl font-bold"
           variants={titleVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           {t("sections.experience.title")}
-        </motion.h2>
-        <motion.p
-          className="text-muted-foreground text-sm md:text-base leading-relaxed"
+        </m.h2>
+        <m.p
+          className="transform-gpu will-change-transform text-muted-foreground text-sm md:text-base leading-relaxed"
           variants={paragraphVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           {t("sections.experience.description")}
-        </motion.p>
+        </m.p>
       </div>
       <div className="w-full space-y-3">
-        <motion.div
-          className="relative w-full h-min bg-foreground/5 border rounded-lg space-y-5 p-6"
+        <m.div
+          className="transform-gpu will-change-transform relative w-full h-min bg-foreground/5 border rounded-lg space-y-5 p-6"
           variants={card1}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 z-10">
             <GraduationCap className="text-blue-500" />
             <h1 className="text-lg font-semibold text-foreground/90">{t("sections.experience.card-top.title")}</h1>
           </div>
           {graduations[lang].map((grad, index) => (
-            <div key={index} className="space-y-3">
+            <div key={index} className="space-y-3 z-10">
               <div className="space-y-2">
                 <h2 className="font-medium text-foreground/90">{grad.course}</h2>
                 <p className="text-foreground/85 text-sm leading-relaxed">{grad.institution}</p>
@@ -75,10 +75,10 @@ export const Experience = () => {
               </div>
             </div>
           ))}
-          <StripedPattern className="opacity-10" />
-        </motion.div>
-        <motion.div
-          className="relative w-full h-min bg-foreground/5 border rounded-lg space-y-5 p-6"
+          <StripedPattern className="opacity-8 z-0" />
+        </m.div>
+        <m.div
+          className="transform-gpu will-change-transform relative w-full h-min bg-foreground/5 border rounded-lg space-y-5 p-6"
           variants={card2}
           initial="hidden"
           whileInView="visible"
@@ -88,7 +88,7 @@ export const Experience = () => {
             <BookmarkCheck className="text-blue-500" />
             <h1 className="text-lg font-semibold text-foreground/90">{t("sections.experience.card-bottom.title")}</h1>
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 z-10">
             {certifications[lang].map((certification, index) => (
               <div
                 key={index}
@@ -120,8 +120,8 @@ export const Experience = () => {
               </div>
             ))}
           </div>
-          <StripedPattern className="opacity-10" />
-        </motion.div>
+          <StripedPattern className="opacity-8 z-0" />
+        </m.div>
       </div>
     </section>
   );
@@ -136,16 +136,16 @@ const titleVariant: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -159,16 +159,16 @@ const paragraphVariant: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
     opacity: 0,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -184,8 +184,8 @@ const card1: Variants = {
     x: 0,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
@@ -193,8 +193,8 @@ const card1: Variants = {
     x: -100,
     scale: 0.9,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -210,8 +210,8 @@ const card2: Variants = {
     scale: 1,
     x: 0,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   exit: {
@@ -219,8 +219,8 @@ const card2: Variants = {
     scale: 0.9,
     x: 100,
     transition: {
-      duration: 0.6,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };

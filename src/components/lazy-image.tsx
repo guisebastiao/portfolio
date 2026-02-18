@@ -31,7 +31,7 @@ export const LazyImage = ({ src, alt, className = "", fallback, ...props }: Lazy
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative flex-1">
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-900">
           <Spinner />

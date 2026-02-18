@@ -6,8 +6,8 @@ import { AuroraText } from "@/components/ui/aurora-text";
 import { AuthorImage } from "@/components/author-image";
 import { LazyImage } from "@/components/lazy-image";
 import { Meteors } from "@/components/ui/meteors";
-import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { m, Variants } from "framer-motion";
 import { skills } from "@/utils/skills";
 import photo from "@/assets/photo.png";
 
@@ -28,35 +28,35 @@ export const Hero = () => {
     >
       <Meteors className="absolute inset-0 pointer-events-none" />
       <article className="space-y-6 max-w-lg text-center md:text-left">
-        <motion.div
-          className="text-4xl font-bold"
+        <m.div
+          className="transform-gpu will-change-transform text-4xl font-bold"
           variants={titleVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           <span>{t("sections.hero.title")}</span> <AuroraText>Guilherme</AuroraText>
-        </motion.div>
-        <motion.div
-          className="text-muted-foreground leading-relaxed text-xl"
+        </m.div>
+        <m.div
+          className="transform-gpu will-change-transform text-muted-foreground leading-relaxed text-xl"
           variants={typedTextVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           <TypingAnimation words={skills} loop={true} startOnView={false} />
-        </motion.div>
-        <motion.p
-          className="text-muted-foreground leading-relaxed text-sm"
+        </m.div>
+        <m.p
+          className="transform-gpu will-change-transform text-muted-foreground leading-relaxed text-sm"
           variants={descriptionVariant}
           initial="hidden"
           whileInView="visible"
           exit="exit"
         >
           {t("sections.hero.description")}
-        </motion.p>
-        <motion.div
-          className="inline-flex"
+        </m.p>
+        <m.div
+          className="transform-gpu will-change-transform inline-flex"
           variants={buttonDownloadVariant}
           initial="hidden"
           whileInView="visible"
@@ -66,9 +66,9 @@ export const Hero = () => {
             <Download className="size-4.5" />
             {t("sections.hero.button.name")}
           </ShimmerButton>
-        </motion.div>
-        <motion.div
-          className="flex items-center justify-center md:justify-start gap-3 pt-2"
+        </m.div>
+        <m.div
+          className="transform-gpu will-change-transform flex items-center justify-center md:justify-start gap-3 pt-2"
           variants={linksVariant}
           initial="hidden"
           whileInView="visible"
@@ -90,10 +90,10 @@ export const Hero = () => {
           >
             <Linkedin className="size-4 text-muted-foreground" />
           </a>
-        </motion.div>
+        </m.div>
       </article>
-      <motion.div
-        className="relative flex items-center justify-center w-full min-w-72 max-w-96 aspect-square shrink-0"
+      <m.div
+        className="transform-gpu will-change-transform relative flex items-center justify-center w-full min-w-72 max-w-96 aspect-square shrink-0"
         variants={imageVariant}
         initial="hidden"
         whileInView="visible"
@@ -103,10 +103,10 @@ export const Hero = () => {
           <LazyImage
             src={photo}
             alt="Guilherme-Sebastião"
-            className="absolute size-200 object-cover drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+            className="absolute top-20 object-cover drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] scale-130"
           />
         </AuthorImage>
-      </motion.div>
+      </m.div>
     </section>
   );
 };
