@@ -21,7 +21,8 @@ i18n
     fallbackLng: "en",
     interpolation: {
       escapeValue: false
-    }
+    },
+    showSupportNotice: false,
   });
 
 i18n.on("languageChanged", (lng) => {
