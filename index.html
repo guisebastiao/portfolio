@@ -1,46 +1,105 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <!-- Base -->
     <meta charset="UTF-8" />
-    <meta name="author" content="Guilherme Sebastião" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guilherme Sebastião | Full Stack Web Developer</title>
+
+    <!-- SEO -->
     <meta name="author" content="Guilherme Sebastião" />
     <meta
       name="description"
-      content="Portfolio de Guilherme Sebastião - Desenvolvedor Web Fullstack especializado em React, TypeScript, Java e Spring Boot. Confira meus projetos e entre em contato."
+      content="Desenvolvedor Full Stack especializado em React, TypeScript e Java com Spring Boot. Experiência prática na construção de aplicações web completas. Veja projetos e entre em contato."
     />
     <meta
       name="keywords"
-      content="desenvolvedor fullstack, react, typescript, java, spring boot, portfolio, web developer"
+      content="desenvolvedor full stack, react, typescript, java, spring boot, web developer, portfolio"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://guisebastiao.com.br" />
-    <meta property="og:title" content="Guilherme Sebastião | FullStack Developer" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://guisebastiao.com.br" />
-    <meta property="twitter:title" content="Guilherme Sebastião | FullStack Developer" />
-    <meta property="twitter:description" content="Portfolio de Guilherme Sebastião - Desenvolvedor Web Fullstack" />
-    <meta property="twitter:image" content="/og-image.png" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="canonical" href="https://guisebastiao.com.br" />
-    <meta property="og:description" content="Portfolio de Guilherme Sebastião - Desenvolvedor Web Fullstack" />
-    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Theme -->
     <meta
-      name="description"
-      content="Portfolio de Guilherme Sebastião com projetos e habilidades em desenvolvimento web."
+      name="theme-color"
+      content="#fafafa"
+      media="(prefers-color-scheme: light)"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta
+      name="theme-color"
+      content="#09090b"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Portfolio de Guilherme Sebastião - Full Stack Web Developer"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Guilherme Sebastião Portfolio" />
+    <meta property="og:url" content="https://guisebastiao.com.br" />
+    <meta
+      property="og:title"
+      content="Guilherme Sebastião | Full Stack Web Developer"
+    />
+    <meta
+      property="og:description"
+      content="Desenvolvedor Full Stack especializado em React, TypeScript e Java com Spring Boot. Experiência prática na construção de aplicações web completas. Veja projetos e entre em contato."
+    />
+    <meta
+      property="og:image"
+      content="https://guisebastiao.com.br/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Guilherme Sebastião | Full Stack Web Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Desenvolvedor Full Stack especializado em React, TypeScript e Java com Spring Boot. Experiência prática na construção de aplicações web completas. Veja projetos e entre em contato."
+    />
+    <meta
+      name="twitter:image"
+      content="https://guisebastiao.com.br/og-image.jpg"
+    />
+
+    <!-- Preload -->
+    <link rel="preload" as="image" href="/og-image.jpg" />
+
+    <!-- Favicons (clean) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Dev Icons -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <title>Guilherme Sebastião | FullStack Developer</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Guilherme Sebastião",
+        "url": "https://guisebastiao.com.br",
+        "image": "https://guisebastiao.com.br/og-image.jpg",
+        "jobTitle": "Full Stack Developer",
+        "sameAs": [
+          "https://github.com/guisebastiao",
+          "https://www.linkedin.com/in/guilherme-sebastiao/"
+        ]
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

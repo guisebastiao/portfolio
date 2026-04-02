@@ -2,7 +2,6 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import profileImg from "@/assets/profile.jpg";
 import { useTheme } from "@/hooks/use-theme";
 import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
@@ -31,7 +30,9 @@ export const Header = () => {
   const { i18n } = useTranslation();
 
   const currentLanguage: Language =
-    i18n.language.split("-")[0] in NAV_ITEMS ? (i18n.language.split("-")[0] as Language) : "pt";
+    i18n.language.split("-")[0] in NAV_ITEMS
+      ? (i18n.language.split("-")[0] as Language)
+      : "pt";
 
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,7 +64,9 @@ export const Header = () => {
 
   const handleNavigate = (id: number) => {
     setMenuOpen(false);
-    const target = document.querySelectorAll("[data-container]")[id] as HTMLElement;
+    const target = document.querySelectorAll("[data-container]")[
+      id
+    ] as HTMLElement;
     if (target) {
       const offset = 64;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
@@ -76,109 +79,131 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed w-full h-16 bg-zinc-200 dark:bg-zinc-900 border-b z-50 flex justify-center">
-      <div className="flex-1 max-w-7xl flex justify-between items-center px-4">
-        <div className="flex items-center gap-2">
-          <div className="relative flex items-center justify-center size-8.5 rounded-full overflow-hidden border-2 border-muted-foreground">
-            <img src={profileImg} alt="profile-img" className="absolute size-full object-cover" />
-          </div>
-          <h1 className="text-muted-foreground text-[15px] font-semibold">
-            <span className="font-black text-foreground">Gui.</span> Sebastião
-          </h1>
+    <header className="sticky w-full h-16 bg-zinc-200 dark:bg-zinc-900 border-b z-50 flex justify-baseline px-4">
+      <div className="flex items-center gap-2">
+        <div className="relative size-8.5 rounded-full overflow-hidden border-2 border-muted-foreground">
+          <img
+            src="/profile.jpg"
+            alt="profile-img"
+            className="absolute size-full object-cover"
+          />
         </div>
-        <div className="flex gap-4 items-center">
-          <nav className="hidden md:flex h-full items-center gap-4">
-            {NAV_ITEMS[currentLanguage].map(({ label, id }) => (
-              <button
-                key={id}
-                onClick={() => handleNavigate(id)}
-                className={twMerge(
-                  "relative flex items-center gap-2 px-2 h-9 text-muted-foreground font-medium cursor-pointer",
-                  active === id && "text-foreground",
-                )}
-              >
-                <span className="text-sm">{label}</span>
-                {active === id && (
-                  <motion.div
-                    layoutId="underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
-          </nav>
-          <Button size="icon-sm" variant="ghost" onClick={toggleLanguage}>
-            <span
+        <h1 className="text-muted-foreground text-[15px] font-semibold">
+          <strong>Gui.</strong> Sebastião
+        </h1>
+      </div>
+      <div className="flex gap-4 items-center">
+        <nav className="hidden md:flex h-full items-center gap-4">
+          {NAV_ITEMS[currentLanguage].map(({ label, id }) => (
+            <button
+              key={id}
+              onClick={() => handleNavigate(id)}
               className={twMerge(
-                "absolute size-5 transition-opacity text-sm font-bold",
-                i18n.language === "pt" ? "opacity-100" : "opacity-0",
+                "relative flex items-center gap-2 px-2 h-9 text-muted-foreground font-medium cursor-pointer",
+                active === id && "text-foreground",
               )}
             >
-              EN
-            </span>
-            <span
-              className={twMerge(
-                "absolute size-5 transition-opacity text-sm font-bold",
-                i18n.language === "en" ? "opacity-100" : "opacity-0",
+              <span className="text-sm">{label}</span>
+              {active === id && (
+                <motion.div
+                  layoutId="underline"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
               )}
-            >
-              BR
-            </span>
-          </Button>
-          <Button size="icon-sm" variant="ghost" onClick={toggleTheme}>
-            <Sun
-              className={twMerge("absolute size-5 transition-opacity", theme === "dark" ? "opacity-100" : "opacity-0")}
-            />
-            <Moon
-              className={twMerge("absolute size-5 transition-opacity", theme === "light" ? "opacity-100" : "opacity-0")}
-            />
-          </Button>
-          <Button
-            size="icon-sm"
-            variant="ghost"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="md:hidden z-100"
+            </button>
+          ))}
+        </nav>
+        <Button size="icon-sm" variant="ghost" onClick={toggleLanguage}>
+          <span
+            className={twMerge(
+              "absolute size-5 transition-opacity text-sm font-bold",
+              i18n.language === "pt" ? "opacity-100" : "opacity-0",
+            )}
           >
-            <X className={twMerge("absolute size-5", menuOpen ? "opacity-100" : "opacity-0")} />
-            <Menu className={twMerge("absolute size-5", !menuOpen ? "opacity-100" : "opacity-0")} />
-          </Button>
-          <AnimatePresence>
-            {menuOpen && (
-              <motion.div
+            EN
+          </span>
+          <span
+            className={twMerge(
+              "absolute size-5 transition-opacity text-sm font-bold",
+              i18n.language === "en" ? "opacity-100" : "opacity-0",
+            )}
+          >
+            BR
+          </span>
+        </Button>
+        <Button size="icon-sm" variant="ghost" onClick={toggleTheme}>
+          <Sun
+            className={twMerge(
+              "absolute size-5 transition-opacity",
+              theme === "dark" ? "opacity-100" : "opacity-0",
+            )}
+          />
+          <Moon
+            className={twMerge(
+              "absolute size-5 transition-opacity",
+              theme === "light" ? "opacity-100" : "opacity-0",
+            )}
+          />
+        </Button>
+        <Button
+          size="icon-sm"
+          variant="ghost"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="md:hidden z-100"
+        >
+          <X
+            className={twMerge(
+              "absolute size-5",
+              menuOpen ? "opacity-100" : "opacity-0",
+            )}
+          />
+          <Menu
+            className={twMerge(
+              "absolute size-5",
+              !menuOpen ? "opacity-100" : "opacity-0",
+            )}
+          />
+        </Button>
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={sidebarVariants}
+              transition={{ type: "spring", stiffness: 30, damping: 20 }}
+              className="fixed top-0 left-0 w-full h-screen bg-zinc-200 dark:bg-zinc-900 md:hidden flex justify-center items-center z-50"
+              style={{ clipPath: "circle(0px at calc(100% - 40px) 40px)" }}
+            >
+              <motion.ul
+                className="flex flex-col gap-4 w-9/12 mx-auto"
                 initial="closed"
                 animate="open"
                 exit="closed"
-                variants={sidebarVariants}
-                transition={{ type: "spring", stiffness: 30, damping: 20 }}
-                className="fixed top-0 left-0 w-full h-screen bg-zinc-200 dark:bg-zinc-900 md:hidden flex justify-center items-center z-50"
-                style={{ clipPath: "circle(0px at calc(100% - 40px) 40px)" }}
+                variants={navVariants}
               >
-                <motion.ul
-                  className="flex flex-col gap-4 w-9/12 mx-auto"
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                  variants={navVariants}
-                >
-                  {NAV_ITEMS[currentLanguage].map(({ label, id }) => (
-                    <motion.li key={id} variants={itemVariants} className="text-center">
-                      <button
-                        onClick={() => handleNavigate(id)}
-                        className={twMerge(
-                          "relative w-full py-3 text-base font-medium text-muted-foreground hover:text-foreground",
-                          active === id && "text-foreground font-bold",
-                        )}
-                      >
-                        {label}
-                      </button>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                {NAV_ITEMS[currentLanguage].map(({ label, id }) => (
+                  <motion.li
+                    key={id}
+                    variants={itemVariants}
+                    className="text-center"
+                  >
+                    <button
+                      onClick={() => handleNavigate(id)}
+                      className={twMerge(
+                        "relative w-full py-3 text-base font-medium text-muted-foreground hover:text-foreground",
+                        active === id && "text-foreground font-bold",
+                      )}
+                    >
+                      {label}
+                    </button>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

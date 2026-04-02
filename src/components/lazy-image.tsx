@@ -1,52 +1,66 @@
-import { useState, useEffect, useRef } from "react";
-import { Spinner } from "@/components/ui/spinner";
+import { Skeleton } from "@/components/ui/skeleton";
+import { twMerge } from "tailwind-merge";
+import React, {
+  forwardRef,
+  useState,
+  useCallback,
+  ImgHTMLAttributes,
+} from "react";
 
-interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  src: string;
-  alt: string;
-  className?: string;
-  fallback?: string;
-}
+type LazyImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+  wrapperClassName?: string;
+};
 
-export const LazyImage = ({ src, alt, className = "", fallback, ...props }: LazyImageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    if (!imgRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "50px" },
+export const LazyImage = forwardRef<HTMLImageElement, LazyImageProps>(
+  (
+    { className, wrapperClassName, onLoad, onError, alt = "", ...props },
+    ref,
+  ) => {
+    const [status, setStatus] = useState<"loading" | "loaded" | "error">(
+      "loading",
     );
 
-    observer.observe(imgRef.current);
-    return () => observer.disconnect();
-  }, []);
+    const handleLoad = useCallback(
+      (e: React.SyntheticEvent<HTMLImageElement>) => {
+        setStatus("loaded");
+        onLoad?.(e);
+      },
+      [onLoad],
+    );
 
-  return (
-    <div className="relative flex-1">
-      {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-900">
-          <Spinner />
-        </div>
-      )}
-      <img
-        ref={imgRef}
-        src={isInView ? src : fallback}
-        alt={alt}
-        className={`${className} transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-        onLoad={() => setIsLoaded(true)}
-        loading="lazy"
-        decoding="async"
-        {...props}
-      />
-    </div>
-  );
-};
+    const handleError = useCallback(
+      (e: React.SyntheticEvent<HTMLImageElement>) => {
+        setStatus("error");
+        onError?.(e);
+      },
+      [onError],
+    );
+
+    return (
+      <div className={twMerge("relative overflow-hidden", wrapperClassName)}>
+        {status === "loading" && (
+          <Skeleton className="absolute inset-0 rounded-md" />
+        )}
+        <img
+          ref={ref}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          data-status={status}
+          onLoad={handleLoad}
+          onError={handleError}
+          className={twMerge(
+            "w-full h-full object-cover transition-opacity duration-300",
+            "data-[status=loading]:opacity-0",
+            "data-[status=loaded]:opacity-100",
+            "data-[status=error]:opacity-0",
+            className,
+          )}
+          {...props}
+        />
+      </div>
+    );
+  },
+);
+
+LazyImage.displayName = "LazyImage";

@@ -1,7 +1,7 @@
 import { LazyImage } from "@/components/lazy-image";
 import { useTranslation } from "react-i18next";
 import { m, Variants } from "framer-motion";
-import { projects } from "@/utils/projects";
+import { projects } from "@/shared/utils/projects";
 import { Github } from "lucide-react";
 import { Language } from "@/i18n";
 
@@ -11,9 +11,18 @@ export const Project = () => {
   const lang = i18n.language as Language;
 
   return (
-    <section className="w-full flex flex-col items-center gap-6 py-8" data-container="2">
+    <section
+      className="w-full flex flex-col items-center gap-6 py-8"
+      data-container="2"
+    >
       <div className="text-center space-y-4 max-w-2xl">
-        <m.h2 className="text-3xl font-bold" variants={titleVariant} initial="hidden" whileInView="visible" exit="exit">
+        <m.h2
+          className="text-3xl font-bold"
+          variants={titleVariant}
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+        >
           {t("sections.project.title")}
         </m.h2>
         <m.p
@@ -43,10 +52,15 @@ export const Project = () => {
             />
             <div className="space-y-3 p-3">
               <h3 className="text-xl font-medium">{project.name}</h3>
-              <p className="text-xs text-muted-foreground">{project.description}</p>
+              <p className="text-xs text-muted-foreground">
+                {project.description}
+              </p>
               <div className="w-full flex flex-wrap gap-2">
                 {project.stacks.map((stack) => (
-                  <span key={stack} className="px-2 py-1 text-muted-foreground text-xs rounded border">
+                  <span
+                    key={stack}
+                    className="px-2 py-1 text-muted-foreground text-xs rounded border"
+                  >
                     {stack}
                   </span>
                 ))}
@@ -58,7 +72,10 @@ export const Project = () => {
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-blue-500 transition"
               >
                 <Github className="size-4" />
-                <span className="text-sm"> {t("sections.project.card.redirect-code")}</span>
+                <span className="text-sm">
+                  {" "}
+                  {t("sections.project.card.redirect-code")}
+                </span>
               </a>
             </div>
           </m.article>

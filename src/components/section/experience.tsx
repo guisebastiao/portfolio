@@ -1,8 +1,13 @@
-import { BookmarkCheck, GraduationCap, MapPin, SquareArrowOutUpRight } from "lucide-react";
+import {
+  BookmarkCheck,
+  GraduationCap,
+  MapPin,
+  SquareArrowOutUpRight,
+} from "lucide-react";
 import { StripedPattern } from "@/components/ui/striped-pattern";
-import { certifications } from "@/utils/certifications";
+import { certifications } from "@/shared/utils/certifications";
 import { PdfDocument } from "@/components/pdf-document";
-import { graduations } from "@/utils/graduations";
+import { graduations } from "@/shared/utils/graduations";
 import { useTranslation } from "react-i18next";
 import { m, Variants } from "framer-motion";
 import { Language } from "@/i18n";
@@ -21,7 +26,10 @@ export const Experience = () => {
   const lang = i18n.language as Language;
 
   return (
-    <section className="w-full flex flex-col items-center gap-6 py-8" data-container="3">
+    <section
+      className="w-full flex flex-col items-center gap-6 py-8"
+      data-container="3"
+    >
       <div className="text-center max-w-2xl space-y-4">
         <m.h2
           className="transform-gpu will-change-transform text-3xl font-bold"
@@ -52,16 +60,24 @@ export const Experience = () => {
         >
           <div className="flex items-center gap-2 z-10">
             <GraduationCap className="text-blue-500" />
-            <h1 className="text-lg font-semibold text-foreground/90">{t("sections.experience.card-top.title")}</h1>
+            <h1 className="text-lg font-semibold text-foreground/90">
+              {t("sections.experience.card-top.title")}
+            </h1>
           </div>
           {graduations[lang].map((grad, index) => (
             <div key={index} className="space-y-3 z-10">
               <div className="space-y-2">
-                <h2 className="font-medium text-foreground/90">{grad.course}</h2>
-                <p className="text-foreground/85 text-sm leading-relaxed">{grad.institution}</p>
+                <h2 className="font-medium text-foreground/90">
+                  {grad.course}
+                </h2>
+                <p className="text-foreground/85 text-sm leading-relaxed">
+                  {grad.institution}
+                </p>
                 <div className="flex items-center gap-2">
                   <span className="block size-2 rounded-full bg-emerald-500" />
-                  <span className="text-foreground/80 text-[13px] leading-relaxed">{grad.status}</span>
+                  <span className="text-foreground/80 text-[13px] leading-relaxed">
+                    {grad.status}
+                  </span>
                 </div>
               </div>
               <div className="space-y-1.5">
@@ -70,7 +86,9 @@ export const Experience = () => {
                 </h3>
                 <div className="flex items-center gap-1">
                   <MapPin className="size-4 text-blue-500" />
-                  <span className="text-foreground/80 text-[13px]">{grad.location}</span>
+                  <span className="text-foreground/80 text-[13px]">
+                    {grad.location}
+                  </span>
                 </div>
               </div>
             </div>
@@ -86,7 +104,9 @@ export const Experience = () => {
         >
           <div className="flex items-center gap-2">
             <BookmarkCheck className="text-blue-500" />
-            <h1 className="text-lg font-semibold text-foreground/90">{t("sections.experience.card-bottom.title")}</h1>
+            <h1 className="text-lg font-semibold text-foreground/90">
+              {t("sections.experience.card-bottom.title")}
+            </h1>
           </div>
           <div className="space-y-1 z-10">
             {certifications[lang].map((certification, index) => (
@@ -97,9 +117,13 @@ export const Experience = () => {
                 <div className="space-y-0.5 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="aspect-square size-2 rounded-full bg-blue-500" />
-                    <h2 className="text-foreground text-[15px] font-semibold">{certification.name}</h2>
+                    <h2 className="text-foreground text-[15px] font-semibold">
+                      {certification.name}
+                    </h2>
                   </div>
-                  <p className="text-muted-foreground text-xs leading-relaxed pl-4">{certification.description}</p>
+                  <p className="text-muted-foreground text-xs leading-relaxed pl-4">
+                    {certification.description}
+                  </p>
                 </div>
                 {certification.certificate && (
                   <Dialog>
@@ -110,8 +134,12 @@ export const Experience = () => {
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
-                        <DialogTitle className="line-clamp-1">{certification.name}</DialogTitle>
-                        <DialogDescription>{certification.description}</DialogDescription>
+                        <DialogTitle className="line-clamp-1">
+                          {certification.name}
+                        </DialogTitle>
+                        <DialogDescription>
+                          {certification.description}
+                        </DialogDescription>
                       </DialogHeader>
                       <PdfDocument certification={certification} />
                     </DialogContent>

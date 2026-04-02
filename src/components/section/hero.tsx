@@ -8,7 +8,7 @@ import { LazyImage } from "@/components/lazy-image";
 import { Meteors } from "@/components/ui/meteors";
 import { useTranslation } from "react-i18next";
 import { m, Variants } from "framer-motion";
-import { skills } from "@/utils/skills";
+import { skills } from "@/shared/utils/skills";
 import photo from "@/assets/photo.png";
 
 export const Hero = () => {
@@ -35,7 +35,8 @@ export const Hero = () => {
           whileInView="visible"
           exit="exit"
         >
-          <span>{t("sections.hero.title")}</span> <AuroraText>Guilherme</AuroraText>
+          <span>{t("sections.hero.title")}</span>{" "}
+          <AuroraText>Guilherme</AuroraText>
         </m.div>
         <m.div
           className="transform-gpu will-change-transform text-muted-foreground leading-relaxed text-xl"
@@ -62,7 +63,10 @@ export const Hero = () => {
           whileInView="visible"
           exit="exit"
         >
-          <ShimmerButton className="h-10 gap-2 text-sm font-medium" onClick={handleDownloadCurriculum}>
+          <ShimmerButton
+            className="h-10 gap-2 text-sm font-medium"
+            onClick={handleDownloadCurriculum}
+          >
             <Download className="size-4.5" />
             {t("sections.hero.button.name")}
           </ShimmerButton>

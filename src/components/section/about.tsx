@@ -1,7 +1,7 @@
 import { StripedPattern } from "@/components/ui/striped-pattern";
 import { useTranslation } from "react-i18next";
 import { m, Variants } from "framer-motion";
-import { stacks } from "@/utils/stacks";
+import { stacks } from "@/shared/utils/stacks";
 import { Language } from "@/i18n";
 
 export const About = () => {
@@ -18,7 +18,10 @@ export const About = () => {
   };
 
   return (
-    <section data-container="1" className="w-full flex flex-col items-center gap-6 py-8">
+    <section
+      data-container="1"
+      className="w-full flex flex-col items-center gap-6 py-8"
+    >
       <m.h2
         className="transform-gpu will-change-transform text-3xl font-bold"
         variants={titleVariant}
@@ -45,7 +48,9 @@ export const About = () => {
           whileInView="visible"
           exit="exit"
         >
-          <h3 className="text-xl font-semibold text-center z-10">{t("sections.about.card-left.title")}</h3>
+          <h3 className="text-xl font-semibold text-center z-10">
+            {t("sections.about.card-left.title")}
+          </h3>
           <p className="text-sm leading-relaxed text-foreground/85 text-justify indent-10 font-light z-10">
             {t("sections.about.card-left.description", {
               age: handleGetAgeYears(),
@@ -61,11 +66,15 @@ export const About = () => {
           <div className="flex gap-3 flex-wrap z-10">
             <div className="min-w-36 flex-1 h-24 border-2 rounded-lg border-foreground/10 bg-neutral-300 dark:bg-zinc-800 flex justify-center items-center flex-col gap-1">
               <h4 className="font-bold text-xl text-blue-600">15+</h4>
-              <span className="text-sm">{t("sections.about.card-left.wrapper.repository.title")}</span>
+              <span className="text-sm">
+                {t("sections.about.card-left.wrapper.repository.title")}
+              </span>
             </div>
             <div className="min-w-36 flex-1 h-24 border-2 rounded-lg border-foreground/10 bg-neutral-300 dark:bg-zinc-800 flex justify-center items-center flex-col gap-1">
               <h4 className="font-bold text-xl text-blue-600">4+</h4>
-              <span className="text-sm">{t("sections.about.card-left.wrapper.project.title")}</span>
+              <span className="text-sm">
+                {t("sections.about.card-left.wrapper.project.title")}
+              </span>
             </div>
           </div>
           <StripedPattern className="size-full opacity-8 z-0" />
@@ -77,13 +86,17 @@ export const About = () => {
           whileInView="visible"
           exit="exit"
         >
-          <h3 className="text-xl font-semibold text-center z-10">{t("sections.about.card-right.title")}</h3>
+          <h3 className="text-xl font-semibold text-center z-10">
+            {t("sections.about.card-right.title")}
+          </h3>
           <div className="space-y-5 z-10">
             {Object.entries(stacks[lang]).map(([category, items]) => (
               <div key={category} className="space-y-2">
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-blue-500" />
-                  <h4 className="text-sm font-medium capitalize text-foreground/90">{category}</h4>
+                  <h4 className="text-sm font-medium capitalize text-foreground/90">
+                    {category}
+                  </h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {items.map(({ name, icon: Icon }) => (

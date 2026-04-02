@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef, CSSProperties } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
   shimmerColor?: string;
@@ -12,7 +12,10 @@ export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
   children?: React.ReactNode;
 }
 
-export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
+export const ShimmerButton = React.forwardRef<
+  HTMLButtonElement,
+  ShimmerButtonProps
+>(
   (
     {
       shimmerColor = "#ffffff",
@@ -47,7 +50,12 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
         {...props}
       >
         {/* spark container */}
-        <div className={cn("-z-30 blur-[2px]", "@container-[size] absolute inset-0 overflow-visible")}>
+        <div
+          className={cn(
+            "-z-30 blur-[2px]",
+            "@container-[size] absolute inset-0 overflow-visible",
+          )}
+        >
           {/* spark */}
           <div className="animate-shimmer-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
             {/* spark before */}
@@ -75,7 +83,11 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
         />
 
         {/* backdrop */}
-        <div className={cn("absolute inset-(--cut) -z-20 rounded-lg [background:var(--bg)]")} />
+        <div
+          className={cn(
+            "absolute inset-(--cut) -z-20 rounded-lg [background:var(--bg)]",
+          )}
+        />
       </button>
     );
   },

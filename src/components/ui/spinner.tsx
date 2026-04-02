@@ -1,39 +1,45 @@
-import { cn } from "@/lib/utils";
+import { twMerge } from "tailwind-merge";
+import * as React from "react";
 
-type SpinnerProps = {
-  size?: number;
-  className?: string;
-};
+export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
+  lines?: number;
+}
 
-export function Spinner({ size = 8, className }: SpinnerProps) {
-  const lines = 10;
-  const duration = 1200;
-
-  return (
-    <div className={"relative inline-block"} style={{ width: size, height: size }} role="status" aria-label="Loading">
-      <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2">
-        {Array.from({ length: lines }).map((_, index) => {
-          const angle = (360 / lines) * index;
-          const delay = -(duration - (duration / lines) * index);
+const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
+  ({ className, lines = 12, ...props }, ref) => {
+    return (
+      <span
+        ref={ref}
+        role="status"
+        aria-label="Loading"
+        className={twMerge(
+          "relative inline-flex items-center justify-center size-4.5 text-foreground",
+          className,
+        )}
+        {...props}
+      >
+        {Array.from({ length: lines }).map((_, i) => {
+          const rotate = (360 / lines) * i;
+          const delay = -((lines - i) / lines);
 
           return (
             <span
-              key={index}
-              className={cn(
-                "absolute left-0 top-0 origin-center rounded-full bg-foreground opacity-0 animate-spinner-fade",
-                className,
-              )}
-              style={{
-                width: size * 0.6,
-                height: size * 0.25,
-                transform: `rotate(${angle}deg) translate(${size * 0.73}px)`,
-                animationDelay: `${delay}ms`,
-                animationDuration: `${duration}ms`,
-              }}
-            />
+              key={i}
+              className="absolute inset-0"
+              style={{ transform: `rotate(${rotate}deg)` }}
+            >
+              <span
+                className="absolute left-1/2 -translate-x-1/2 top-[5%] w-[9%] h-[27%] rounded-full bg-current animate-spinner-fade"
+                style={{ animationDelay: `${delay}s` }}
+              />
+            </span>
           );
         })}
-      </div>
-    </div>
-  );
-}
+      </span>
+    );
+  },
+);
+
+Spinner.displayName = "Spinner";
+
+export { Spinner };
