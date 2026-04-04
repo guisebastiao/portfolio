@@ -1,6 +1,6 @@
 import type { Variants } from "motion/react";
 
-export const slideX = (x: number): Variants => ({
+export const slideX = (x: number, delay = 0): Variants => ({
   hidden: {
     opacity: 0,
     scale: 0.9,
@@ -13,6 +13,7 @@ export const slideX = (x: number): Variants => ({
     transition: {
       duration: 0.5,
       ease: "easeIn",
+      delay,
     },
   },
   exit: {
@@ -22,6 +23,7 @@ export const slideX = (x: number): Variants => ({
     transition: {
       duration: 0.5,
       ease: "easeOut",
+      delay,
     },
   },
 });

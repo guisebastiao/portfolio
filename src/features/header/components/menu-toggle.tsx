@@ -9,10 +9,10 @@ interface MenuToggleProps {
 
 export const MenuToggle = ({ open, onToggle }: MenuToggleProps) => (
   <Button
-    size="icon-sm"
+    size="icon"
     variant="ghost"
     onClick={onToggle}
-    className="z-100 md:hidden"
+    className="z-100 md:hidden transition-none"
   >
     <X
       className={twMerge("absolute size-5", open ? "opacity-100" : "opacity-0")}

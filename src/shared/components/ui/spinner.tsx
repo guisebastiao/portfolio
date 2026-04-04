@@ -1,10 +1,49 @@
-import { cn } from "@/shared/lib/utils"
-import { Loader2Icon } from "lucide-react"
+import { twMerge } from "tailwind-merge";
+import * as React from "react";
 
-function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
-  return (
-    <Loader2Icon role="status" aria-label="Loading" className={cn("size-4 animate-spin", className)} {...props} />
-  )
+export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
+  segments?: number;
 }
 
-export { Spinner }
+export const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
+  ({ className, segments = 12, ...props }, ref) => {
+    const items = React.useMemo(() => {
+      const step = 360 / segments;
+
+      return Array.from({ length: segments }, (_, i) => ({
+        rotate: step * i,
+        delay: -(i / segments),
+        key: i,
+      }));
+    }, [segments]);
+
+    return (
+      <span
+        ref={ref}
+        role="status"
+        aria-label="Loading"
+        aria-live="polite"
+        className={twMerge(
+          "relative inline-flex size-4.5 items-center justify-center text-foreground",
+          className,
+        )}
+        {...props}
+      >
+        {items.map(({ rotate, delay, key }) => (
+          <span
+            key={key}
+            className="absolute inset-0"
+            style={{ transform: `rotate(${rotate}deg)` }}
+          >
+            <span
+              className="absolute left-1/2 top-[5%] h-[27%] w-[9%] -translate-x-1/2 rounded-full bg-current animate-spinner-fade"
+              style={{ animationDelay: `${delay}s` }}
+            />
+          </span>
+        ))}
+      </span>
+    );
+  },
+);
+
+Spinner.displayName = "Spinner";

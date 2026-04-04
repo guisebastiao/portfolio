@@ -2,16 +2,16 @@
   "sections": {
     "about": {
       "title": "Sobre Mim",
-      "description": "Sou desenvolvedor e entusiasta de tecnologia, em constante busca por evolução pessoal e pela qualidade no desenvolvimento de software.",
+      "description": "Sou desenvolvedor e entusiasta de tecnologia, em constante busca por evolução pessoal e excelência no desenvolvimento de soluções.",
       "card-left": {
         "title": "Minha Jornada",
-        "description": "Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de {{age}} anos, atualmente moro em Tubarão-SC. A minha paixão por computação começou cedo, uma curiosidade que me impulsionou a querer ir além de ser um mero espectador e me tornar um criador. Essa motivação me guia em minha atual formação superior, um passo que considero fundamental para adquirir a disciplina e a base de conhecimento necessárias para transformar meu interesse em uma carreira. Hoje, aplico essa mesma dedicação para desenvolver aplicações completas, eficientes e intuitivas.",
+        "description": "Meu nome é Guilherme Fernandes Sebastião, tenho {{age}} anos e sou desenvolvedor web, atualmente resido em Tubarão, Santa Catarina. Meu interesse por computação surgiu ainda cedo, impulsionado por uma curiosidade que me levou a ir além de um simples espectador e me tornar um criador. Essa motivação orienta minha formação acadêmica, que considero essencial para adquirir disciplina e uma base sólida de conhecimento, fundamentais para transformar esse interesse em carreira. Atualmente, aplico essa dedicação no desenvolvimento de aplicações completas, eficientes e intuitivas.",
         "lists": [
-          "Residente em Tubarão-SC, aberto a oportunidades remotas;",
-          "Aberto a um bate-papo sobre tecnologia, projetos e novas ideias;",
-          "Focado em boas práticas de desenvolvimento e código limpo;",
-          "Sempre aprendendo e explorando novas tecnologias em desenvolvimento;",
-          "Desenvolvimento Web com TypeScript, Java e frameworks modernos;"
+          "Residente em Tubarão, Santa Catarina, com disponibilidade para oportunidades presenciais e remotas;",
+          "Disponível para conversas sobre tecnologia, projetos e novas ideias;",
+          "Comprometido com boas práticas de desenvolvimento e código limpo;",
+          "Em constante aprendizado e exploração de novas tecnologias;",
+          "Experiência em desenvolvimento web com TypeScript, Java e frameworks modernos;"
         ],
         "wrapper": {
           "repository": {
@@ -23,28 +23,28 @@
         }
       },
       "card-right": {
-        "title": "Stack Tecnológico"
+        "title": "Stack Tecnológica"
       }
     },
     "contact": {
-      "title": "Vamos Conversar",
-      "description": "Tem uma ideia, projeto ou apenas quer trocar uma ideia? Me manda uma mensagem, vou adorar conversar com você.",
+      "title": "Contato",
+      "description": "Caso tenha alguma ideia, projeto ou deseje apenas trocar experiências, sinta-se à vontade para enviar uma mensagem. Será um prazer conversar com você.",
       "form": {
         "name": {
           "label": "Nome",
           "placeholder": "Informe seu nome"
         },
         "email": {
-          "label": "Email",
+          "label": "E-mail",
           "placeholder": "Informe seu e-mail"
         },
         "subject": {
           "label": "Assunto",
-          "placeholder": "Escreva sua mensagem..."
+          "placeholder": "Escreva sua mensagem"
         },
         "submit": {
           "button-normal": {
-            "name": "Enviar"
+            "name": "Enviar mensagem"
           },
           "button-pending": {
             "name": "Enviando..."
@@ -52,33 +52,33 @@
         }
       },
       "contratar": {
-        "title": "Afinal, vamos trabalhar juntos hoje?",
+        "title": "Afinal, vamos trabalhar juntos?",
         "button-name": "Contratar"
       }
     },
     "experience": {
       "title": "Experiência Profissional",
-      "description": "Minha caminhada no desenvolvimento e na construção da minha carreira.",
+      "description": "Minha trajetória em desenvolvimento e na construção da minha carreira.",
       "card-top": {
         "title": "Formação Acadêmica",
         "location": "Localização"
       },
       "card-bottom": {
-        "title": "Conquistas & Certificações"
+        "title": "Conquistas e Certificações"
       }
     },
     "hero": {
       "title": "Olá, eu sou",
-      "description": "Desenvolvedor Web Fullstack e estudante de Ciência da Computação na Unisul, apaixonado por tecnológia.",
+      "description": "Desenvolvedor Web Full Stack e estudante de Ciência da Computação na Unisul, com grande interesse por tecnologia.",
       "button": {
-        "name": "Baixar Currículo"
+        "name": "Baixar currículo"
       }
     },
     "project": {
-      "title": "Meus Projetos",
-      "description": "Estes são alguns dos projetos que construí com muito esforço e dedicação.",
+      "title": "Projetos",
+      "description": "Alguns dos projetos que desenvolvi com dedicação e atenção aos detalhes.",
       "card": {
-        "redirect-code": "Código"
+        "redirect-code": "Ver código"
       }
     }
   },
@@ -86,22 +86,25 @@
     "info": {
       "page": "Página",
       "of": "de"
+    },
+    "error": {
+      "message": "Ocorreu um erro ao carregar o PDF. Por favor, tente novamente mais tarde."
     }
   },
   "hooks": {
     "send-mail": {
       "toast": {
         "success": "Seu e-mail foi enviado com sucesso.",
-        "error": "Algo deu errado, tente novamente mais tarde."
+        "error": "Ocorreu um erro. Por favor, tente novamente mais tarde."
       }
     }
   },
   "pages": {
     "not-found": {
-      "title": "Página Não Encontrada!",
-      "description": "Desculpe, não conseguimos encontrar o que você estava procurando. Que tal voltar para a página inicial?",
+      "title": "Página não encontrada",
+      "description": "Não foi possível localizar a página solicitada. Por favor, retorne à página inicial.",
       "button": {
-        "name": "Voltar para o início"
+        "name": "Voltar ao início"
       }
     }
   },
@@ -109,21 +112,26 @@
     "contact": {
       "name": {
         "nonempty": "O nome é obrigatório.",
-        "invalid-size": "O nome não pode ser maior do que 100 caracteres."
+        "invalid-size": "O nome deve ter no máximo 100 caracteres."
       },
       "email": {
         "nonempty": "O e-mail é obrigatório.",
-        "valid": "E-mail inválido.",
-        "invalid-size": "O e-mail não pode ser maior do que 300 caracteres"
+        "valid": "Informe um e-mail válido.",
+        "invalid-size": "O e-mail deve ter no máximo 300 caracteres."
       },
       "subject": {
         "nonempty": "O assunto é obrigatório.",
-        "invalid-size": "O assunto não pode ser maior do que 150 caracteres."
+        "invalid-size": "O assunto deve ter no máximo 150 caracteres."
       }
     }
   },
   "footer": {
-    "copyright": "todos os direitos reservados.",
-    "locale": "Tubarão - SC, Brasil."
+    "description": "Desenvolvedor Web Full Stack focado em TypeScript, Java, React e Spring Boot.",
+    "copyright": "Todos os direitos reservados.",
+    "locale": "Tubarão, Santa Catarina, Brasil.",
+    "label": {
+      "title": "Conecte-se comigo",
+      "description": "Confira meu trabalho e trajetória aqui abaixo"
+    }
   }
 }

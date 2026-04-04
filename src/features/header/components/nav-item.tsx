@@ -11,9 +11,9 @@ export const NavItem = ({ label, active, onClick }: NavItemProps) => {
   return (
     <button
       onClick={onClick}
+      data-active={active}
       className={twMerge(
-        "relative h-9 px-2 text-sm font-medium text-muted-foreground cursor-pointer",
-        active && "text-foreground",
+        "relative h-9 px-2 text-sm font-medium text-muted-foreground cursor-pointer data-[active=true]:text-foreground select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 outline-none rounded-md",
       )}
     >
       {label}

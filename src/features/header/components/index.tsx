@@ -34,12 +34,15 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 left-0 z-50 h-16 w-full flex justify-center border-b bg-neutral-100 px-4 dark:bg-neutral-900">
-      <div className="max-w-7xl flex-1 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+    <header className="fixed top-0 left-0 z-50 h-16 w-full flex justify-center border-b bg-background">
+      <div className="max-w-7xl flex-1 flex items-center justify-between px-2">
+        <div
+          className="flex items-center gap-2 cursor-pointer select-none"
+          onClick={() => handleNavigate(0)}
+        >
           <div className="relative size-9 overflow-hidden rounded-full border-2 border-muted-foreground">
             <img
-              src="/photo.jpg"
+              src="/profile.jpg"
               alt="profile"
               className="absolute inset-0 size-full object-cover"
             />

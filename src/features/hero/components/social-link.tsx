@@ -8,7 +8,7 @@ export const SocialLink = ({ href, children }: SocialLinkProps) => (
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="rounded-full p-2.5 transition hover:bg-zinc-800"
+    className="rounded-full p-2.5 transition border border-transparent hover:bg-foreground/20 hover:border-border"
   >
     {children}
   </a>

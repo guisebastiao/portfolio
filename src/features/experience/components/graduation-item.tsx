@@ -1,4 +1,4 @@
-import type { graduations } from "@/shared/utils/graduations";
+import type { graduations } from "@/data/graduations";
 import { useTranslation } from "react-i18next";
 import { MapPin } from "lucide-react";
 
@@ -26,7 +26,7 @@ export const GraduationItem = ({ grad }: GraduationItemProps) => {
           {t("sections.experience.card-top.location")}
         </h4>
         <div className="flex items-center gap-1">
-          <MapPin className="size-4 text-blue-500" />
+          <MapPin className="size-4 text-primary" />
           <span className="text-[13px] text-foreground/80">
             {grad.location}
           </span>

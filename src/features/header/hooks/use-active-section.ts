@@ -14,7 +14,9 @@ export const useActiveSection = () => {
         const index = Array.from(sections).indexOf(visible.target);
         setActive(index);
       },
-      { rootMargin: "-50% 0% -50% 0%" },
+      {
+        rootMargin: "-50% 0px -50% 0px",
+      },
     );
 
     sections.forEach((s) => observer.observe(s));

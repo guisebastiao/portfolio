@@ -11,12 +11,12 @@ export const SubmitButton = ({ loading }: { loading: boolean }) => {
     <Button type="submit" disabled={loading} className="w-full">
       {loading ? (
         <React.Fragment>
-          <Spinner className="bg-white" />
+          <Spinner className="text-white" />
           <span>{t("sections.contact.form.submit.button-pending.name")}</span>
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Send className="size-4" />
+          <Send />
           <span>{t("sections.contact.form.submit.button-normal.name")}</span>
         </React.Fragment>
       )}

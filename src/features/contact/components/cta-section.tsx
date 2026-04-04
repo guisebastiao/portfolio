@@ -1,15 +1,12 @@
 import { ShimmerButton } from "@/shared/components/ui/shimmer-button";
 import { AuroraText } from "@/shared/components/ui/aurora-text";
 import { slideX } from "@/features/contact/variants/slide-x";
+import { COLORS } from "@/features/contact/constants/colors";
+import { motionProps } from "@/shared/utils/motion-props";
 import { useTheme } from "@/app/hooks/use-theme";
 import { useTranslation } from "react-i18next";
 import { ScrollText } from "lucide-react";
 import { motion } from "motion/react";
-
-const COLORS = {
-  dark: ["#a1a1a1", "#d4d4d4"],
-  light: ["#404040", "#737373"],
-};
 
 export const CTASection = () => {
   const { theme } = useTheme();
@@ -20,10 +17,8 @@ export const CTASection = () => {
 
   return (
     <motion.div
-      variants={slideX(-80)}
-      initial="hidden"
-      whileInView="visible"
       className="w-full max-w-xl space-y-16 py-20"
+      {...motionProps(slideX(-80))}
     >
       <AuroraText
         className="py-2 text-center text-5xl font-bold leading-16 text-shadow-2xs"

@@ -9,7 +9,12 @@ interface LanguageToggleProps {
 
 export const LanguageToggle = ({ language, onToggle }: LanguageToggleProps) => {
   return (
-    <Button size="icon-sm" variant="ghost" onClick={onToggle}>
+    <Button
+      size="icon"
+      variant="ghost"
+      className="transition-none"
+      onClick={onToggle}
+    >
       <span
         className={twMerge(
           "absolute text-sm font-bold transition-opacity",

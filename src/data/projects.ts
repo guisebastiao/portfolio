@@ -17,7 +17,7 @@ export const projects: Record<Language, Project[]> = {
       cover:
         "https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png",
       link: "https://github.com/guisebastiao/ecommerce",
-      stacks: ["TypeScript", "React", "Tailwind", "ChadCn"],
+      stacks: ["TypeScript", "React", "Tailwind", "ShadCn"],
     },
     {
       name: "Ecommerce API",
@@ -86,7 +86,7 @@ export const projects: Record<Language, Project[]> = {
       cover:
         "https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png",
       link: "https://github.com/guisebastiao/ecommerce",
-      stacks: ["TypeScript", "React", "Tailwind", "ChadCn"],
+      stacks: ["TypeScript", "React", "Tailwind", "ShadCn"],
     },
     {
       name: "E-commerce API",

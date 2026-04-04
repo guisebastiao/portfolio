@@ -7,8 +7,17 @@ import en from "@/shared/locales/en.json";
 export const SUPPORTED_LANGUAGES = ["pt", "en"] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
-export const DEFAULT_LANGUAGE: Language = "pt";
+const getSystemLanguage = (): Language => {
+  if (typeof navigator === "undefined") return "en";
+
+  const base = navigator.language.split("-")[0];
+  return (SUPPORTED_LANGUAGES as readonly string[]).includes(base)
+    ? (base as Language)
+    : "en";
+};
+
 const STORAGE_KEY = "app_language";
+export const DEFAULT_LANGUAGE: Language = getSystemLanguage();
 
 const resources = {
   pt: { translation: pt },

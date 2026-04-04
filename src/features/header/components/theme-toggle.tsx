@@ -8,16 +8,21 @@ interface ThemeToggleProps {
 }
 
 export const ThemeToggle = ({ theme, onToggle }: ThemeToggleProps) => (
-  <Button size="icon-sm" variant="ghost" onClick={onToggle}>
+  <Button
+    size="icon"
+    variant="ghost"
+    className="transition-none"
+    onClick={onToggle}
+  >
     <Sun
       className={twMerge(
-        "absolute size-5 transition-opacity",
+        "absolute size-5",
         theme === "dark" ? "opacity-100" : "opacity-0",
       )}
     />
     <Moon
       className={twMerge(
-        "absolute size-5 transition-opacity",
+        "absolute size-5",
         theme === "light" ? "opacity-100" : "opacity-0",
       )}
     />

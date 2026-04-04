@@ -3,7 +3,7 @@ import { SubmitButton } from "@/features/contact/components/submit-button";
 import { FormField } from "@/features/contact/components/form-field";
 import type {} from "@/features/contact/hooks/use-send-mail";
 import { slideX } from "@/features/contact/variants/slide-x";
-import { fade } from "@/features/contact/variants/fade";
+import { motionProps } from "@/shared/utils/motion-props";
 import type { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
@@ -16,24 +16,14 @@ type FormSectionProps = {
 
 export const FormSection = ({ form, onSubmit, loading }: FormSectionProps) => {
   const { t } = useTranslation();
+  const { handleSubmit } = form;
 
   return (
     <motion.div
-      variants={slideX(80)}
-      initial="hidden"
-      whileInView="visible"
+      {...motionProps(slideX(80))}
       className="flex w-full max-w-xl flex-col gap-1.5"
     >
-      <motion.h2 variants={fade()} className="text-center text-3xl font-bold">
-        {t("sections.contact.title")}
-      </motion.h2>
-      <motion.p
-        variants={fade(0.1)}
-        className="my-3 text-center text-muted-foreground"
-      >
-        {t("sections.contact.description")}
-      </motion.p>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           form={form}
           name="name"

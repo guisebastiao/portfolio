@@ -6,9 +6,9 @@ export const Hero = () => {
   return (
     <div
       data-container="0"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center md:flex-row gap-6 py-8"
+      className="relative w-full min-h-dvh flex flex-col items-center justify-center md:flex-row gap-6 py-8 mt-16"
     >
-      <Meteors className="pointer-events-none absolute inset-0" />
+      <Meteors className="absolute inset-0" />
       <Content />
       <ProfileImage />
     </div>

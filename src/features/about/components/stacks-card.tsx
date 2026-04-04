@@ -1,9 +1,9 @@
 import { StripedPattern } from "@/shared/components/ui/striped-pattern";
-import { motionProps } from "@/features/about/utils/motion-props";
-import { cardRight } from "@/features/about/variants/card-right";
 import { cardClass } from "@/features/about/utils/card-class";
+import { slideX } from "@/features/about/variants/slide-x";
+import { motionProps } from "@/shared/utils/motion-props";
 import { useTranslation } from "react-i18next";
-import { stacks } from "@/shared/utils/stacks";
+import { stacks } from "@/data/stacks";
 import type { Language } from "@/i18n";
 import { motion } from "motion/react";
 
@@ -13,7 +13,7 @@ export const StacksCard = () => {
   const lang: Language = (i18n.language ?? "pt") as Language;
 
   return (
-    <motion.div {...motionProps(cardRight)} className={cardClass}>
+    <motion.div {...motionProps(slideX(80))} className={cardClass}>
       <h3 className="text-xl font-semibold text-center z-10">
         {t("sections.about.card-right.title")}
       </h3>
@@ -21,7 +21,7 @@ export const StacksCard = () => {
         {Object.entries(stacks[lang]).map(([category, items]) => (
           <div key={category} className="space-y-2">
             <div className="flex items-center gap-1.5">
-              <span className="size-2 rounded-full bg-blue-500" />
+              <span className="size-2 rounded-full bg-primary" />
               <h4 className="text-sm font-medium capitalize text-foreground/90">
                 {category}
               </h4>
@@ -30,7 +30,7 @@ export const StacksCard = () => {
               {items.map(({ name, icon: Icon }) => (
                 <div
                   key={name}
-                  className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-foreground/25 bg-neutral-300 dark:bg-zinc-800"
+                  className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-foreground/15 bg-foreground/5"
                 >
                   <Icon className="size-3.5 text-foreground/85" />
                   <span className="text-xs text-foreground/85">{name}</span>

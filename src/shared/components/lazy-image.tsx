@@ -4,7 +4,7 @@ import React, {
   forwardRef,
   useState,
   useCallback,
-  ImgHTMLAttributes,
+  type ImgHTMLAttributes,
 } from "react";
 
 type LazyImageProps = ImgHTMLAttributes<HTMLImageElement> & {

@@ -16,7 +16,7 @@ export const MobileMenu = ({ items, active, onNavigate }: MobileMenuProps) => (
     animate="open"
     exit="closed"
     variants={sidebarVariants}
-    className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-200 dark:bg-zinc-900 md:hidden"
+    className="fixed inset-0 z-50 flex items-center justify-center bg-background md:hidden"
   >
     <motion.ul
       variants={navVariants}
@@ -27,7 +27,7 @@ export const MobileMenu = ({ items, active, onNavigate }: MobileMenuProps) => (
           <button
             onClick={() => onNavigate(i)}
             className={twMerge(
-              "w-full py-3 text-base font-medium text-muted-foreground",
+              "w-full py-3 text-base font-medium text-muted-foreground cursor-pointer select-none",
               active === i && "font-bold text-foreground",
             )}
           >

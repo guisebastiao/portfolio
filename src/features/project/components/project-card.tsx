@@ -1,7 +1,8 @@
 import { fadeScale } from "@/features/project/variants/fade-scale";
 import { LazyImage } from "@/shared/components/lazy-image";
-import { projects } from "@/shared/utils/projects";
+import { motionProps } from "@/shared/utils/motion-props";
 import { useTranslation } from "react-i18next";
+import { projects } from "@/data/projects";
 import { Github } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -14,8 +15,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
   return (
     <motion.article
-      variants={fadeScale()}
-      className="rounded-lg border bg-zinc-200 dark:bg-zinc-900"
+      className="rounded-lg border bg-foreground/5"
+      {...motionProps(fadeScale())}
     >
       <LazyImage
         src={project.cover}
@@ -39,7 +40,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           href={project.link}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 text-muted-foreground transition hover:text-blue-500"
+          className="inline-flex items-center gap-1 text-muted-foreground transition hover:text-primary"
         >
           <Github className="size-4" />
           <span className="text-sm">

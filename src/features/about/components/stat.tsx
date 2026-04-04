@@ -9,9 +9,11 @@ export const Stat = ({ value, labelKey }: StatProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-w-36 flex-1 h-24 border-2 rounded-lg border-foreground/10 bg-neutral-300 dark:bg-zinc-800 flex flex-col items-center justify-center gap-1">
-      <h4 className="font-bold text-xl text-blue-600">{value}</h4>
-      <span className="text-sm">{t(labelKey as any)}</span>
+    <div className="border border-foreground/15 rounded-lg bg-foreground/5 flex-1 py-3">
+      <h4 className="font-bold text-xl text-primary text-center">{value}</h4>
+      <span className="block text-sm text-center font-medium text-foreground/75">
+        {t(labelKey as any)}
+      </span>
     </div>
   );
 };

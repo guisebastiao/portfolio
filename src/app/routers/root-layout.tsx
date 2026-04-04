@@ -12,7 +12,7 @@ export const RootLayout = () => {
     <main className="relative min-h-dvh bg-background">
       <LightEffects />
       <Header />
-      <section className="max-w-6xl w-full mx-auto px-4 overflow-hidden">
+      <section className="max-w-6xl w-full mx-auto px-4">
         <Hero />
         <About />
         <Project />
