@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface NavItemProps {
   label: string;
@@ -12,7 +12,7 @@ export const NavItem = ({ label, active, onClick }: NavItemProps) => {
     <button
       onClick={onClick}
       className={twMerge(
-        "relative h-9 px-2 text-sm font-medium text-muted-foreground",
+        "relative h-9 px-2 text-sm font-medium text-muted-foreground cursor-pointer",
         active && "text-foreground",
       )}
     >

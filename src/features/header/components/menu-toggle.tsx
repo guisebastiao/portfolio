@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/components/ui/button";
 import { twMerge } from "tailwind-merge";
 import { Menu, X } from "lucide-react";
 

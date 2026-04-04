@@ -2,7 +2,7 @@ import { sidebarVariants } from "@/features/header/variants/sidebar-variants";
 import { itemVariants } from "@/features/header/variants/item-variants";
 import { navVariants } from "@/features/header/variants/nav-variants";
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface MobileMenuProps {
   items: readonly string[];

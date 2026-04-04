@@ -1,4 +1,4 @@
-import { Variants } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export const fadeRight: Variants = {
   hidden: { opacity: 0, x: 80, scale: 0.95 },

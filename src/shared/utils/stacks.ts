@@ -1,9 +1,9 @@
 import { VscVscodeInsiders } from "react-icons/vsc";
+import type { IconType } from "react-icons/lib";
 import { TbBrandOauth } from "react-icons/tb";
-import { IconType } from "react-icons/lib";
 import * as SiIcons from "react-icons/si";
 import { FaJava } from "react-icons/fa";
-import { Language } from "@/i18n";
+import type { Language } from "@/i18n";
 
 export type Stack = {
   name: string;
@@ -56,7 +56,7 @@ export const stacks: Record<Language, StackCategory> = {
       {
         name: "CSS",
         type: "Style",
-        icon: SiIcons.SiCss3,
+        icon: SiIcons.SiCss,
       },
       {
         name: "Tailwind",
@@ -263,7 +263,7 @@ export const stacks: Record<Language, StackCategory> = {
       {
         name: "CSS",
         type: "Style",
-        icon: SiIcons.SiCss3,
+        icon: SiIcons.SiCss,
       },
       {
         name: "Tailwind",

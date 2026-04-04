@@ -1,8 +1,8 @@
-import { LightBeans } from "@/components/light-beans";
-import { Meteors } from "@/components/ui/meteors";
+import { LightEffects } from "@/shared/components/light-effects";
+import { Meteors } from "@/shared/components/ui/meteors";
+import { Button } from "@/shared/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 
 export const NotFound = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const NotFound = () => {
   return (
     <main className="relative flex flex-col items-center bg-background overflow-hidden">
       <Meteors />
-      <LightBeans />
+      <LightEffects />
       <div className="max-w-xl min-h-screen flex flex-col justify-center items-center gap-12 px-8 py-3.5">
         <h1 className="text-3xl font-bold text-center">
           {t("pages.not-found.title")}

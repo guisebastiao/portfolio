@@ -1,16 +1,16 @@
 import { ProfileImage } from "@/features/hero/components/profile-image";
-import { Meteors } from "@/components/ui/meteors";
-import { Content } from "@radix-ui/react-dialog";
+import { Content } from "@/features/hero/components/content";
+import { Meteors } from "@/shared/components/ui/meteors";
 
 export const Hero = () => {
   return (
-    <section
+    <div
       data-container="0"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center gap-6 py-8 md:flex-row"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center md:flex-row gap-6 py-8"
     >
       <Meteors className="pointer-events-none absolute inset-0" />
       <Content />
       <ProfileImage />
-    </section>
+    </div>
   );
 };

@@ -1,12 +1,9 @@
 {
-  "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+  "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "types": ["vite/client"]
-  }
+    }
+  },
+  "include": ["src", "types"]
 }

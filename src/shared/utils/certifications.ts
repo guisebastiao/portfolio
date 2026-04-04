@@ -1,4 +1,4 @@
-import { Language } from "@/i18n";
+import type { Language } from "@/i18n";
 
 export type Certification = {
   name: string;
@@ -12,7 +12,7 @@ export const certifications: Record<Language, Certification[]> = {
       name: "Curso de JavaScript e TypeScript do básico ao avançado",
       description:
         "O curso mais completo sobre todas as nuances do JavaScript você você vai encontrar na atualidade.",
-      certificate: "/curso_javaScript_typeScript_básico_avançado.pdf",
+      certificate: "/curso_js_ts_basico_avancado.pdf",
     },
     {
       name: "Desenvolvimento Web Completo",

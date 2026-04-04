@@ -3,4 +3,4 @@ export const NAV_ITEMS = {
   en: ["Home", "About", "Projects", "Experience", "Contact"],
 } as const;
 
-export type Language = keyof typeof NAV_ITEMS;
+export type NavItems = keyof typeof NAV_ITEMS;

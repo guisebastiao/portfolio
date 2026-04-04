@@ -1,6 +1,6 @@
-import { Language } from "@/features/header/constants/nav-items";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/components/ui/button";
 import { twMerge } from "tailwind-merge";
+import type { Language } from "@/i18n";
 
 interface LanguageToggleProps {
   language: Language;

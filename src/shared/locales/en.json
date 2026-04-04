@@ -6,11 +6,13 @@
       "card-left": {
         "title": "My Journey",
         "description": "My name is Guilherme Fernandes Sebastião, a young {{age}} year old developer, currently living in Tubarão-SC. My passion for computing started early, a curiosity that drove me to want to go beyond being a mere spectator and become a creator. This motivation guides me in my current higher education, a step I consider fundamental to acquiring the discipline and knowledge base necessary to transform my interest into a career. Today, I apply this same dedication to developing complete, efficient, and intuitive applications.",
-        "lists-1": "Resident in Tubarão-SC, open to remote opportunities;",
-        "lists-2": "Open to chatting about technology, projects, and new ideas;",
-        "lists-3": "Focused on development best practices and clean code;",
-        "lists-4": "Always learning and exploring new technologies in development;",
-        "lists-5": "Web Development with TypeScript, Java, and modern frameworks;",
+        "lists": [
+          "Resident in Tubarão-SC, open to remote opportunities;",
+          "Open to chatting about technology, projects, and new ideas;",
+          "Focused on development best practices and clean code;",
+          "Always learning and exploring new technologies in development;",
+          "Web Development with TypeScript, Java, and modern frameworks;"
+        ],
         "wrapper": {
           "repository": {
             "title": "Repositories"

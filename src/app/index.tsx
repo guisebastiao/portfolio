@@ -1,19 +1,16 @@
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import { LenisProvider } from "@/app/providers/lenis-provider";
-import { domAnimation, LazyMotion } from "motion/react";
+import { Toaster } from "@/shared/components/ui/sonner";
 import { RouterProvider } from "react-router-dom";
-import { Toaster } from "@/components/ui/sonner";
-import { router } from "@/routes";
+import { router } from "@/app/routers";
 
 export const App = () => {
   return (
     <ThemeProvider>
-      <LazyMotion features={domAnimation}>
-        <LenisProvider>
-          <RouterProvider router={router} />
-          <Toaster />
-        </LenisProvider>
-      </LazyMotion>
+      <LenisProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </LenisProvider>
     </ThemeProvider>
   );
 };

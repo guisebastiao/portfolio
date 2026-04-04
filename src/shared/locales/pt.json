@@ -6,11 +6,13 @@
       "card-left": {
         "title": "Minha Jornada",
         "description": "Me chamo Guilherme Fernandes Sebastião, um jovem desenvolvedor de {{age}} anos, atualmente moro em Tubarão-SC. A minha paixão por computação começou cedo, uma curiosidade que me impulsionou a querer ir além de ser um mero espectador e me tornar um criador. Essa motivação me guia em minha atual formação superior, um passo que considero fundamental para adquirir a disciplina e a base de conhecimento necessárias para transformar meu interesse em uma carreira. Hoje, aplico essa mesma dedicação para desenvolver aplicações completas, eficientes e intuitivas.",
-        "lists-1": "Residente em Tubarão-SC, aberto a oportunidades remotas;",
-        "lists-2": "Aberto a um bate-papo sobre tecnologia, projetos e novas ideias;",
-        "lists-3": "Focado em boas práticas de desenvolvimento e código limpo;",
-        "lists-4": "Sempre aprendendo e explorando novas tecnologias em desenvolvimento;",
-        "lists-5": "Desenvolvimento Web com TypeScript, Java e frameworks modernos;",
+        "lists": [
+          "Residente em Tubarão-SC, aberto a oportunidades remotas;",
+          "Aberto a um bate-papo sobre tecnologia, projetos e novas ideias;",
+          "Focado em boas práticas de desenvolvimento e código limpo;",
+          "Sempre aprendendo e explorando novas tecnologias em desenvolvimento;",
+          "Desenvolvimento Web com TypeScript, Java e frameworks modernos;"
+        ],
         "wrapper": {
           "repository": {
             "title": "Repositórios"
