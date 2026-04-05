@@ -13,7 +13,7 @@ export const Project = () => {
   return (
     <div
       data-container="2"
-      className="w-full min-h-dvh flex flex-col items-center gap-6 py-8"
+      className="w-full min-h-screen flex flex-col items-center gap-6 py-8"
     >
       <Header />
       <div className="grid w-full grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">

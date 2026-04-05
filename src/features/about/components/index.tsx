@@ -9,7 +9,7 @@ export const About = () => {
   return (
     <div
       data-container="1"
-      className="w-full min-h-dvh flex flex-col items-center gap-6 py-8"
+      className="w-full min-h-screen flex flex-col items-center gap-6 py-8"
     >
       <Header />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">

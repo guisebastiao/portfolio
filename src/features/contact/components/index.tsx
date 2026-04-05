@@ -50,7 +50,7 @@ export const Contact = () => {
   return (
     <div
       data-container="4"
-      className="w-full min-h-dvh flex flex-col items-center justify-center gap-6 py-8"
+      className="w-full min-h-screen flex flex-col items-center justify-center gap-6 py-8"
     >
       <Header />
       <FormSection form={form} onSubmit={onSubmit} loading={loading} />

@@ -16,7 +16,7 @@ export const Card = ({ icon: Icon, title, children, variants }: CardProps) => (
     {...motionProps(variants)}
   >
     <div className="flex items-center gap-2">
-      <Icon className="text-primary" />
+      <Icon className="text-foreground/90" />
       <h2 className="text-lg font-semibold text-foreground/90">{title}</h2>
     </div>
     <div className="z-10 space-y-4">{children}</div>

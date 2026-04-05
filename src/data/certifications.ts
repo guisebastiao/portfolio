@@ -89,7 +89,7 @@ export const certifications: Record<Language, Certification[]> = {
       name: "JavaScript and TypeScript Course from Basic to Advanced",
       description:
         "The most complete course covering all the nuances of JavaScript currently available.",
-      certificate: "/curso_javaScript_typeScript_básico_avançado.pdf",
+      certificate: "/curso_js_ts_basico_avancado.pdf",
     },
     {
       name: "Complete Web Development",

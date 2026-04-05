@@ -6,7 +6,7 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
-  ({ className, segments = 12, ...props }, ref) => {
+  ({ className, segments = 10, ...props }, ref) => {
     const items = React.useMemo(() => {
       const step = 360 / segments;
 

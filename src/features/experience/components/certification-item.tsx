@@ -21,7 +21,7 @@ export const CertificationItem = ({
   <div className="flex items-center rounded-lg border border-transparent px-3 py-1.5 transition hover:border-border hover:bg-foreground/10">
     <div className="flex-1 space-y-0.5">
       <div className="flex items-center gap-2">
-        <span className="size-2 rounded-full bg-primary" />
+        <span className="size-2 rounded-full aspect-square bg-primary" />
         <h3 className="text-[15px] font-semibold text-foreground">
           {certification.name}
         </h3>

@@ -35,7 +35,7 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 z-50 h-16 w-full flex justify-center border-b bg-background">
-      <div className="max-w-7xl flex-1 flex items-center justify-between px-2">
+      <div className="max-w-7xl flex-1 flex items-center justify-between px-3.5">
         <div
           className="flex items-center gap-2 cursor-pointer select-none"
           onClick={() => handleNavigate(0)}
