@@ -1,0 +1,11 @@
+{
+  "title": "OLÁ, EU SOU",
+  "description": "Desenvolvedor Web Full Stack e estudante de Ciência da Computação na Unisul, com grande interesse por tecnologia.",
+  "download-resume": {
+    "success": "Curriculo baixado com sucesso.",
+    "error": "Erro ao baixar o curriculo."
+  },
+  "button": {
+    "name": "Baixar currículo"
+  }
+}

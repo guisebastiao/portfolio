@@ -1,0 +1,9 @@
+{
+  "not-found": {
+    "title": "Página não encontrada",
+    "description": "Não foi possível localizar a página solicitada. Por favor, retorne à página inicial.",
+    "button": {
+      "name": "Voltar ao início"
+    }
+  }
+}

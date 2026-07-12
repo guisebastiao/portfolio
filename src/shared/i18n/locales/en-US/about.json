@@ -1,0 +1,38 @@
+{
+  "title": "About Me",
+  "card-me": {
+    "title": "My Journey",
+    "description": "I'm a Full Stack Web Developer based in Tubarão, Santa Catarina, Brazil. My main focus is building efficient architectures and intuitive end-to-end experiences using modern technologies such as Java, Spring Boot, TypeScript, and React. From complex back-end business logic to smooth front-end interfaces, I'm dedicated to writing clean, maintainable, and functional code.",
+    "wrapper": {
+      "repository": {
+        "title": "Repositories"
+      },
+      "project": {
+        "title": "Projects"
+      }
+    }
+  },
+  "languages": {
+    "title": "Languages",
+    "portuguese": {
+      "name": "Portuguese",
+      "level": "Native"
+    },
+    "english": {
+      "name": "English",
+      "level": "Basic"
+    }
+  },
+  "card-frontend": {
+    "title": "Frontend"
+  },
+  "card-backend": {
+    "title": "Backend"
+  },
+  "card-database": {
+    "title": "Databases & Infrastructure"
+  },
+  "card-tools": {
+    "title": "Tools"
+  }
+}

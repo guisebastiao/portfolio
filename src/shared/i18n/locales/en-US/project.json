@@ -1,0 +1,30 @@
+{
+  "title": "Projects",
+  "card": {
+    "redirect-code": "View Code"
+  },
+  "front-ecommerce": {
+    "description": "Frontend for an e-commerce application featuring mock payments, authentication, and more."
+  },
+  "back-ecommerce": {
+    "description": "A RESTful API built with Spring Boot to manage an e-commerce system."
+  },
+  "to-do-list": {
+    "description": "A simple and intuitive to-do list application."
+  },
+  "tic-tac-toe": {
+    "description": "The classic Tic-Tac-Toe game."
+  },
+  "flappy-bird": {
+    "description": "A clone of the popular Flappy Bird game."
+  },
+  "termo": {
+    "description": "A clone of the popular word game Termo."
+  },
+  "snake-game": {
+    "description": "A clone of the classic Snake game."
+  },
+  "memory-game": {
+    "description": "A classic memory matching game."
+  }
+}

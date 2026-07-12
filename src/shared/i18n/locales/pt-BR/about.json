@@ -1,0 +1,38 @@
+{
+  "title": "Sobre Mim",
+  "card-me": {
+    "title": "Minha Jornada",
+    "description": "Sou desenvolvedor Web Full-Stack residente em Tubarão, SC. Meu foco principal está em criar arquiteturas eficientes e experiências intuitivas de ponta a ponta, utilizando tecnologias modernas como Java, Spring Boot, TypeScript e React. Das regras de negócio complexas do back-end à fluidez da interface no front-end, dedico-me a construir códigos limpos e funcionais.",
+    "wrapper": {
+      "repository": {
+        "title": "Repositórios"
+      },
+      "project": {
+        "title": "Projetos"
+      }
+    }
+  },
+  "languages": {
+    "title": "Idiomas",
+    "portuguese": {
+      "name": "Português",
+      "level": "Nativo"
+    },
+    "english": {
+      "name": "Inglês",
+      "level": "Básico"
+    }
+  },
+  "card-frontend": {
+    "title": "Frontend"
+  },
+  "card-backend": {
+    "title": "Backend"
+  },
+  "card-database": {
+    "title": "Banco de Dados & Infraestrutura"
+  },
+  "card-tools": {
+    "title": "Ferramentas"
+  }
+}

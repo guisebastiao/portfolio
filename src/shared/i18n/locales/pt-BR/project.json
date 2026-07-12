@@ -1,0 +1,30 @@
+{
+  "title": "Projetos",
+  "card": {
+    "redirect-code": "Ver código"
+  },
+  "front-ecommerce": {
+    "description": "Frontend de um e-commerce com pagamentos fictícios, autenticação e muito mais."
+  },
+  "back-ecommerce": {
+    "description": "Uma API RESTful desenvolvida com Spring Boot para gerenciar um sistema de e-commerce."
+  },
+  "to-do-list": {
+    "description": "Este projeto é uma aplicação de lista de tarefas."
+  },
+  "tic-tac-toe": {
+    "description": "O famoso e clássico jogo da velha."
+  },
+  "flappy-bird": {
+    "description": "Este projeto contém o clone do famoso jogo Flappy Bird."
+  },
+  "termo": {
+    "description": "Este projeto contém um clone do popular jogo de palavras Termo."
+  },
+  "snake-game": {
+    "description": "Esse projeto contém o jogo da cobrinha famoso Snake Game."
+  },
+  "memory-game": {
+    "description": "Projeto do clássico jogo da memória."
+  }
+}

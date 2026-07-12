@@ -1,0 +1,58 @@
+{
+  "title": "Contact",
+  "card": {
+    "title": "Let's Build Something Together",
+    "description": "I'm always open to discussing new opportunities, projects, collaborations, and challenges in software development. If you have an idea, a job opportunity, or believe we could build something great together, feel free to get in touch. I'd be happy to exchange experiences and explore new possibilities.",
+    "info": {
+      "email": {
+        "label": "Email:",
+        "value": "guilhermesebastiaou.u@gmail.com"
+      },
+      "location": {
+        "label": "Location:",
+        "value": "Santa Catarina, Brazil (Remote)"
+      }
+    }
+  },
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "Write your message"
+    },
+    "submit": {
+      "button-normal": {
+        "name": "Send Message"
+      },
+      "button-pending": {
+        "name": "Sending..."
+      }
+    }
+  },
+  "toast": {
+    "success": "Your email has been sent successfully.",
+    "error": "An error occurred. Please try again later."
+  },
+  "schema-validation": {
+    "name": {
+      "nonempty": "Name is required.",
+      "invalid-size": "Name must be at most 100 characters long."
+    },
+    "email": {
+      "nonempty": "Email is required.",
+      "valid": "Please enter a valid email address.",
+      "invalid-size": "Email must be at most 300 characters long."
+    },
+    "subject": {
+      "nonempty": "Subject is required.",
+      "invalid-size": "Subject must be at most 150 characters long."
+    }
+  }
+}

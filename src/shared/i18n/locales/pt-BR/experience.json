@@ -1,0 +1,86 @@
+{
+  "title": "Experiência",
+  "card-top": {
+    "title": "Formação Acadêmica"
+  },
+  "card-middle": {
+    "title": "Trajetória Profissional"
+  },
+  "card-bottom": {
+    "title": "Conquistas e Certificações"
+  },
+  "modal": {
+    "button": "Ver certificações",
+    "button-close": "Fechar"
+  },
+  "graduations": {
+    "computer-science": {
+      "course": "Ciência da Computação",
+      "institution": "UNISUL - Universidade do Sul de Santa Catarina",
+      "status": "Em Andamento",
+      "location": "Tubarão - SC, Brasil"
+    }
+  },
+  "works": {
+    "frengee-beginner": {
+      "title": "Backend Beginner",
+      "business": "Frengee",
+      "description": "Atuo no desenvolvimento e manutenção de sistemas, realizando implementação de funcionalidades, correção de bugs e apoio às entregas da equipe, seguindo boas práticas de desenvolvimento de software.",
+      "moment": "2026 - Presente"
+    }
+  },
+  "certifications": {
+    "js-ts": {
+      "name": "Curso de JavaScript e TypeScript do básico ao avançado",
+      "description": "O curso mais completo sobre todas as nuances do JavaScript você vai encontrar na atualidade."
+    },
+    "web-dev": {
+      "name": "Desenvolvimento Web Completo",
+      "description": "Curso completo sobre desenvolvimento web."
+    },
+    "react": {
+      "name": "React do Zero a Maestria",
+      "description": "Curso de React com recursos mais simples até os mais complexos que a biblioteca oferece."
+    },
+    "java": {
+      "name": "DEV THE DEVS",
+      "description": "Capacitação em desenvolvimento Java."
+    },
+    "network": {
+      "name": "Networking Essentials",
+      "description": "Capacitação em rede de computadores."
+    },
+    "psc": {
+      "name": "Programação de soluções computacionais",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "ms": {
+      "name": "Modelagem de software",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "acs": {
+      "name": "Ambientes computacionais e segurança",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "acc": {
+      "name": "Ambientes computacionais e conectividade",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "sdm": {
+      "name": "Sistemas distribuídos e mobile",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "udmj": {
+      "name": "Usabilidade, desenvolvimento web, mobile e jogos",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "ai": {
+      "name": "Inteligência artificial",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    },
+    "gqs": {
+      "name": "Gestão e qualidade de software",
+      "description": "Unidade curricular concluída da grade de ciência da computação."
+    }
+  }
+}

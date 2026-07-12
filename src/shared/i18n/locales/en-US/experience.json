@@ -1,0 +1,86 @@
+{
+  "title": "Experience",
+  "card-top": {
+    "title": "Education"
+  },
+  "card-middle": {
+    "title": "Professional Experience"
+  },
+  "card-bottom": {
+    "title": "Achievements & Certifications"
+  },
+  "modal": {
+    "button": "View Certifications",
+    "button-close": "Close"
+  },
+  "graduations": {
+    "computer-science": {
+      "course": "Computer Science",
+      "institution": "UNISUL - University of Southern Santa Catarina",
+      "status": "In Progress",
+      "location": "Tubarão, Santa Catarina, Brazil"
+    }
+  },
+  "works": {
+    "frengee-beginner": {
+      "title": "Backend Developer",
+      "business": "Frengee",
+      "description": "I develop and maintain software systems by implementing new features, fixing bugs, and supporting the team in delivering high-quality solutions while following software development best practices.",
+      "moment": "2026 - Present"
+    }
+  },
+  "certifications": {
+    "js-ts": {
+      "name": "JavaScript & TypeScript: From Basics to Advanced",
+      "description": "A comprehensive course covering JavaScript and TypeScript, from the fundamentals to advanced concepts."
+    },
+    "web-dev": {
+      "name": "Complete Web Development",
+      "description": "A comprehensive course covering modern web development."
+    },
+    "react": {
+      "name": "React: From Zero to Mastery",
+      "description": "A complete React course covering everything from the basics to advanced features."
+    },
+    "java": {
+      "name": "DEV THE DEVS",
+      "description": "Professional training in Java development."
+    },
+    "network": {
+      "name": "Networking Essentials",
+      "description": "Professional training in computer networking."
+    },
+    "psc": {
+      "name": "Computational Problem Solving Programming",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "ms": {
+      "name": "Software Modeling",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "acs": {
+      "name": "Computing Environments and Security",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "acc": {
+      "name": "Computing Environments and Connectivity",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "sdm": {
+      "name": "Distributed and Mobile Systems",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "udmj": {
+      "name": "Usability, Web, Mobile, and Game Development",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "ai": {
+      "name": "Artificial Intelligence",
+      "description": "Completed course module from the Computer Science curriculum."
+    },
+    "gqs": {
+      "name": "Software Quality and Management",
+      "description": "Completed course module from the Computer Science curriculum."
+    }
+  }
+}

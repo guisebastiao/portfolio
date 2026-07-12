@@ -1,0 +1,9 @@
+{
+  "not-found": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for could not be found. Please return to the home page.",
+    "button": {
+      "name": "Back to Home"
+    }
+  }
+}

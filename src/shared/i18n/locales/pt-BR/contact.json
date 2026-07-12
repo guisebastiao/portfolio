@@ -1,0 +1,58 @@
+{
+  "title": "Contato",
+  "card": {
+    "title": "Vamos construir algo juntos?",
+    "description": "Estou sempre aberto a conversar sobre novas oportunidades, projetos, colaborações e desafios na área de desenvolvimento de software. Se você tem uma ideia, uma vaga ou acredita que podemos construir algo interessante juntos, entre em contato. Será um prazer trocar experiências e explorar novas possibilidades.",
+    "info": {
+      "email": {
+        "label": "Email:",
+        "value": "guilhermesebastiaou.u@gmail.com"
+      },
+      "location": {
+        "label": "Localização:",
+        "value": "Santa Catarina, Brasil (Remoto)"
+      }
+    }
+  },
+  "form": {
+    "name": {
+      "label": "Nome",
+      "placeholder": "Informe seu nome"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "Informe seu e-mail"
+    },
+    "subject": {
+      "label": "Assunto",
+      "placeholder": "Escreva sua mensagem"
+    },
+    "submit": {
+      "button-normal": {
+        "name": "Enviar mensagem"
+      },
+      "button-pending": {
+        "name": "Enviando..."
+      }
+    }
+  },
+  "toast": {
+    "success": "Seu e-mail foi enviado com sucesso.",
+    "error": "Ocorreu um erro. Por favor, tente novamente mais tarde."
+  },
+  "schema-validation": {
+    "name": {
+      "nonempty": "O nome é obrigatório.",
+      "invalid-size": "O nome deve ter no máximo 100 caracteres."
+    },
+    "email": {
+      "nonempty": "O e-mail é obrigatório.",
+      "valid": "Informe um e-mail válido.",
+      "invalid-size": "O e-mail deve ter no máximo 300 caracteres."
+    },
+    "subject": {
+      "nonempty": "O assunto é obrigatório.",
+      "invalid-size": "O assunto deve ter no máximo 150 caracteres."
+    }
+  }
+}
